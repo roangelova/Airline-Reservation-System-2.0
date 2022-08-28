@@ -1,4 +1,5 @@
 ﻿using ARS.Common.Enums;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Persistance.Entities
 {
-    public class CrewMember
+    public class CrewMember : Trackable
     {
         public Guid CrewMemberId {get; set;} = Guid.NewGuid();
 
@@ -19,9 +20,5 @@ namespace ARS.Persistance.Entities
         [Required]
         [MaxLength(CrewMemberMaxNameLength)]
         public string Name { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ARS.Common.Enums;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,17 +9,11 @@ using System.Threading.Tasks;
 
 namespace ARS.Persistance.Entities
 {
-    public class Booking
+    public class Booking:Trackable
     {
         public Guid BookingNumber { get; set; } = Guid.NewGuid();
 
         [Required]
         public Status BookingStatus { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
-
-
     }
 }

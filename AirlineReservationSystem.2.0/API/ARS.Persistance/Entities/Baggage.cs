@@ -1,4 +1,5 @@
 ﻿using ARS.Common.Enums;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ARS.Persistance.Entities
 {
-    public class Baggage
+    public class Baggage:Trackable
     {
         public Guid BaggageId { get; set; } = Guid.NewGuid();
 
@@ -23,10 +24,5 @@ namespace ARS.Persistance.Entities
 
         [ForeignKey(nameof(Booking))]
         public string BookingNumber { get; set; }
-
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
     }
 }

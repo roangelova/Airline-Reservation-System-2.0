@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARS.Persistance.TrackDataChanges;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Persistance.Entities
 {
-    public class Destination
+    public class Destination :Trackable
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
@@ -19,9 +20,5 @@ namespace ARS.Persistance.Entities
         [Required]
         [MaxLength(DestinationNameMaxLength)]
         public string Name { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
     }
 }

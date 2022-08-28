@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARS.Persistance.TrackDataChanges;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Persistance.Entities
 {
-    public class Airline
+    public class Airline:Trackable
     {
         public Guid AirlineId { get; set; } = Guid.NewGuid();
 
@@ -22,11 +23,5 @@ namespace ARS.Persistance.Entities
         
         [MaxLength(AirlineMaxLogoImageLength)]
         public string? AirlineLogo { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
-
-
     }
 }

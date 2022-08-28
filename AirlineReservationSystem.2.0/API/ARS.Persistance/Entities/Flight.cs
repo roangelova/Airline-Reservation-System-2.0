@@ -1,4 +1,5 @@
 ﻿using ARS.Common.Enums;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ARS.Persistance.Entities
 {
-    public class Flight
+    public class Flight:Trackable
     {
         public Guid FlightId { get; set; } = Guid.NewGuid();
 

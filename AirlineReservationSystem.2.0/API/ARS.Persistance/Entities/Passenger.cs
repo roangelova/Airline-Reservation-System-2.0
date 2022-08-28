@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARS.Persistance.TrackDataChanges;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Persistance.Entities
 {
-    public abstract class Passenger
+    public abstract class Passenger:Trackable
     {
         public Guid PassengerId { get; set; } = Guid.NewGuid();
 
@@ -37,9 +38,5 @@ namespace ARS.Persistance.Entities
         public List<Booking> Bookings = new List<Booking>();
 
         public List<Baggage> Baggages = new List<Baggage>();
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
     }
 }
