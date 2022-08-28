@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Persistance.Entities
 {
@@ -15,10 +16,12 @@ namespace ARS.Persistance.Entities
         [Required]
         public AircraftManufacturer Manufacturer { get; set; }
 
-        [Required]
+        [Required] 
+        [MaxLength(AircraftModelMaxLength)]
         public string Model { get; set; }
 
         [Required]
+        [MaxLength(AircraftImageUrlMaxLength)]
         public string ImageUrl { get; set; }
 
         [Required]

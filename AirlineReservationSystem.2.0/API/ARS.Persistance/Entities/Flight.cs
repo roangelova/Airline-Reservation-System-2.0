@@ -32,6 +32,7 @@ namespace ARS.Persistance.Entities
         [Required]
         public DateTime Duration { get; set; }
 
+        [Required]
         public Status FlightStatus { get; set; }
 
         [Required]
