@@ -23,5 +23,7 @@ namespace ARS.Common.Constants
         public const int PassengerMaxNameLength = 60;
         public const int PassengerMaxNationalityLength = 50;
         public const int PassengerMaxDocumentNumberLength = 30;
+
+        public const int UserNameMaxLength = 50;
     }
 }
