@@ -14,6 +14,8 @@ namespace ARS.Persistance.Entities
     {
         public Guid FlightId { get; set; } = Guid.NewGuid();
 
+        public bool IsAnOffer { get; set; }
+
         [ForeignKey(nameof(Origin))]
         public string OriginId { get; set; }
 
