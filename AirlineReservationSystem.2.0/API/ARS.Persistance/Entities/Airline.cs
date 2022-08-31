@@ -23,5 +23,11 @@ namespace ARS.Persistance.Entities
         
         [MaxLength(AirlineMaxLogoImageLength)]
         public string? AirlineLogo { get; set; }
+
+        //TODO: ADMIN??
+
+        public List<Flight> Flights { get; set; } = new List<Flight>();
+
+        public List<CrewMember> CrewMembers { get; set; } = new List<CrewMember>();
     }
 }

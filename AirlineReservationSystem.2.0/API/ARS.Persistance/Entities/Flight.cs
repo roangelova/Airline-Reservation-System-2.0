@@ -1,12 +1,7 @@
 ﻿using ARS.Common.Enums;
 using ARS.Persistance.TrackDataChanges;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ARS.Persistance.Entities
 {
@@ -17,13 +12,13 @@ namespace ARS.Persistance.Entities
         public bool IsAnOffer { get; set; }
 
         [ForeignKey(nameof(Origin))]
-        public string OriginId { get; set; }
+        public Guid OriginId { get; set; }
 
         [Required]
         public Destination Origin { get; set; }
 
         [ForeignKey(nameof(Destination))]
-        public string DestinationId { get; set; }
+        public Guid DestinationId { get; set; }
 
         [Required]
         public Destination Destination { get; set; }
@@ -42,7 +37,13 @@ namespace ARS.Persistance.Entities
         public Aircraft Aircraft { get; set; }
 
         [ForeignKey(nameof(Aircraft))]
-        public string AircraftID { get; set; }
+        public Guid AircraftID { get; set; }
+
+        [Required]
+        public Airline Airline { get; set; }
+
+        [ForeignKey(nameof(AirlineId))]
+        public Guid AirlineId { get; set; }
 
         [Required]
         public decimal TicketPrice { get; set; }

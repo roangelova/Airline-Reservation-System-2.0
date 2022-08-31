@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.Enums
 {
-    public enum AircraftManufacturer
+    public enum Continent
     {
-        Airbus, 
-        Boeing,
-        Embraer
+        Europe,
+        Asia, 
+        NorthAmerica, 
+        SouthAmerica,
+        Africa,
+        Australia
     }
 }

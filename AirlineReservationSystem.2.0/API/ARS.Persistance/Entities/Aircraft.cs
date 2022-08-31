@@ -16,7 +16,7 @@ namespace ARS.Persistance.Entities
         public Guid AircraftId { get; set; } = Guid.NewGuid();
 
         [Required]
-        public AircraftManufacturer Manufacturer { get; set; }
+        public AircraftType Manufacturer { get; set; }
 
         [Required] 
         [MaxLength(AircraftModelMaxLength)]

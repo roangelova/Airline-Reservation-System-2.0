@@ -15,5 +15,11 @@ namespace ARS.Persistance.Entities
 
         [Required]
         public Status BookingStatus { get; set; }
+
+        //flight 
+
+        //list of pasengers
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using ARS.Persistance.TrackDataChanges;
+﻿using ARS.Common.Enums;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,8 @@ namespace ARS.Persistance.Entities
     public class Destination :Trackable
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+
+        public Continent Continent { get; set; }
 
         [Required]
         [MaxLength(IATACodeMaxLength)]

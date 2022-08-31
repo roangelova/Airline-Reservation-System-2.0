@@ -1,9 +1,4 @@
-﻿using ARS.Persistance.TrackDataChanges;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ARS.Persistance.Entities.Contracts;
 
 namespace ARS.Persistance.Entities
 {

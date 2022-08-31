@@ -1,4 +1,5 @@
-﻿using ARS.Persistance.TrackDataChanges;
+﻿using ARS.Persistance.Entities.Contracts;
+using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.Linq;

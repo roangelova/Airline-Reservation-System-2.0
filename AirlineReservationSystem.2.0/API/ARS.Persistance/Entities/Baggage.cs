@@ -23,6 +23,6 @@ namespace ARS.Persistance.Entities
         public Booking Booking { get; set; }
 
         [ForeignKey(nameof(Booking))]
-        public string BookingNumber { get; set; }
+        public Guid BookingNumber { get; set; }
     }
 }

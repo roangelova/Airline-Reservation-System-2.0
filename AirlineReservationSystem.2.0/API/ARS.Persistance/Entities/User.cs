@@ -15,11 +15,11 @@ namespace ARS.Persistance.Entities
     {
         [Required]
         [MaxLength(UserNameMaxLength)]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
 
         [Required]
         [MaxLength(UserNameMaxLength)]
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
 
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static ARS.Common.Constants.EntityConstants;
 
-namespace ARS.Persistance.Entities
+namespace ARS.Persistance.Entities.Contracts
 {
-    public abstract class Passenger:Trackable
+    public abstract class Passenger : Trackable
     {
         public Guid PassengerId { get; set; } = Guid.NewGuid();
 

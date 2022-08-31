@@ -3,6 +3,7 @@ using ARS.Persistance.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,17 @@ namespace ARS.Persistance.Entities
         [Required]
         [MaxLength(CrewMemberMaxNameLength)]
         public string Name { get; set; }
+
+        public AirlineType TypeRating { get; set; }
+
+        [MaxLength(CrewMemberMaxAvatarUrl)]
+        //TODO: USE A DIFFERENT KIND OF DB TO STORE UPLOADED AVATARS; alt - blob storage 
+        public string? AvatarUrl { get; set; }
+
+        public Airline Airline { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Airline))]
+        public Guid AirlineId { get; set; }
     }
 }

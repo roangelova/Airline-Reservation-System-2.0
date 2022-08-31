@@ -16,6 +16,7 @@ namespace ARS.Common.Constants
         public const int AirlineMaxLogoImageLength= 2000;
 
         public const int CrewMemberMaxNameLength = 80;
+        public const int CrewMemberMaxAvatarUrl = 2000;
 
         public const int IATACodeMaxLength = 3;
         public const int DestinationNameMaxLength = 50;

@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="MappingTables\" />
-    <Folder Include="Configurations\" />
   </ItemGroup>
 
 </Project>
