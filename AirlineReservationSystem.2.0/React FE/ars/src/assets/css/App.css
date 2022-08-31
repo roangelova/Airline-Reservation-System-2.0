@@ -39,5 +39,9 @@
 }
 
 body {
-  background-color: black;
+  background-color: rgb(254, 252, 252);
+}
+
+.cutomGradient{
+  background: linear-gradient(135deg, rgb(175, 128, 166) 0%, rgb(151, 83, 132) 69%, rgb(104, 29, 88) 89%) 
 }
