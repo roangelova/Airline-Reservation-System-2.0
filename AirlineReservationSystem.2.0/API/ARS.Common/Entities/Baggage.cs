@@ -1,5 +1,5 @@
 ﻿using ARS.Common.Enums;
-using ARS.Persistance.TrackDataChanges;
+using ARS.Common.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARS.Persistance.Entities
+namespace ARS.Common.Entities
 {
-    public class Baggage:Trackable
+    public class Baggage : Trackable
     {
         public Guid BaggageId { get; set; } = Guid.NewGuid();
 
@@ -23,6 +23,7 @@ namespace ARS.Persistance.Entities
         public Booking Booking { get; set; }
 
         [ForeignKey(nameof(Booking))]
+        [Required]
         public Guid BookingNumber { get; set; }
     }
 }

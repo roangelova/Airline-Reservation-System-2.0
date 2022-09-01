@@ -1,11 +1,12 @@
 ﻿using ARS.Common.Enums;
-using ARS.Persistance.TrackDataChanges;
+using ARS.Common.TrackDataChanges;
+using ARS.Common.MappingTables;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ARS.Persistance.Entities
+namespace ARS.Common.Entities
 {
-    public class Flight:Trackable
+    public class Flight : Trackable
     {
         public Guid FlightId { get; set; } = Guid.NewGuid();
 
@@ -42,12 +43,12 @@ namespace ARS.Persistance.Entities
         [Required]
         public Airline Airline { get; set; }
 
-        [ForeignKey(nameof(AirlineId))]
+        [ForeignKey(nameof(Airline))]
         public Guid AirlineId { get; set; }
 
         [Required]
         public decimal TicketPrice { get; set; }
 
-        public List<Booking> Bookings = new List<Booking>();
+        public ICollection<FlightsBookings> FlightsBookings { get; set; } = new List<FlightsBookings>();
     }
 }

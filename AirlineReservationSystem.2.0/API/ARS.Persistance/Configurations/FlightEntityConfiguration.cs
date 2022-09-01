@@ -1,4 +1,4 @@
-﻿using ARS.Persistance.Entities;
+﻿using ARS.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

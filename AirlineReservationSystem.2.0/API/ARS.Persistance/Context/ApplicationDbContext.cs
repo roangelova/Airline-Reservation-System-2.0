@@ -1,5 +1,5 @@
-﻿using ARS.Persistance.Entities;
-using ARS.Persistance.TrackDataChanges;
+﻿using ARS.Common.Entities;
+using ARS.Common.TrackDataChanges;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

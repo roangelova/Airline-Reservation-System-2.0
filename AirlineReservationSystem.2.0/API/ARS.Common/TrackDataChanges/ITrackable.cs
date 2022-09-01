@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARS.Persistance.TrackDataChanges
+namespace ARS.Common.TrackDataChanges
 {
-    public class Trackable
+    public interface ITrackable
     {
         public Guid CreatedBy { get; set; }
 

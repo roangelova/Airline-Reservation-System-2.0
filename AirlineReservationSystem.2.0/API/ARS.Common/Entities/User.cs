@@ -1,4 +1,4 @@
-﻿using ARS.Persistance.TrackDataChanges;
+﻿using ARS.Common.TrackDataChanges;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static ARS.Common.Constants.EntityConstants;
 
-namespace ARS.Persistance.Entities
+namespace ARS.Common.Entities
 {
     public class User : IdentityUser<Guid>, ITrackable
     {

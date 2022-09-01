@@ -1,19 +1,24 @@
-﻿using ARS.Persistance.TrackDataChanges;
+﻿using ARS.Common.Entities;
+using ARS.Common.TrackDataChanges;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ARS.Common.Constants.EntityConstants;
 
-namespace ARS.Persistance.Entities.Contracts
+namespace ARS.Common.Entities.Contracts
 {
     public abstract class Passenger : Trackable
     {
         public Guid PassengerId { get; set; } = Guid.NewGuid();
 
         public User User { get; set; }
+
+        [ForeignKey(nameof(User))]
+        public Guid? UserId { get; set; }
 
         [Required]
         [MaxLength(PassengerMaxNameLength)]
