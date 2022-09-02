@@ -15,6 +15,8 @@ namespace ARS.Common.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public Continent Continent { get; set; }
+        
+        public Country Country { get; set; }
 
         [Required]
         [MaxLength(IATACodeMaxLength)]
