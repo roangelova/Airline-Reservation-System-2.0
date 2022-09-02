@@ -14,14 +14,12 @@ namespace ARS.Common.MappingTables
         public Booking Booking { get; set; }
 
         [ForeignKey(nameof(Booking))]
-        [Required]
-        public Guid BookingId { get; set; }
+        public Guid BookingId { get; set; } = Guid.NewGuid();
 
 
         public Flight Flight { get; set; }
 
         [ForeignKey(nameof(Flight))]
-        [Required]
-        public Guid FlightId { get; set; }
+        public Guid FlightId { get; set; } = Guid.NewGuid();
     }
 }

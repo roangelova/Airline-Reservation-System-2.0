@@ -11,9 +11,9 @@ using static ARS.Common.Constants.EntityConstants;
 
 namespace ARS.Common.Entities.Contracts
 {
-    public abstract class Passenger : Trackable
+    public class Passenger : Trackable
     {
-        public Guid PassengerId { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         public User User { get; set; }
 
@@ -31,13 +31,11 @@ namespace ARS.Common.Entities.Contracts
         [Required]
         public DateTime DOB { get; set; }
 
-        [Required]
         [MaxLength(PassengerMaxNationalityLength)]
-        public string Nationality { get; set; }
+        public string? Nationality { get; set; }
 
-        [Required]
         [MaxLength(PassengerMaxDocumentNumberLength)]
-        public string DocumentNumber { get; set; }
+        public string? DocumentNumber { get; set; }
 
 
         public List<Booking> Bookings = new List<Booking>();

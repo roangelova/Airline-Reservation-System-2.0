@@ -1,5 +1,8 @@
 ﻿using ARS.Common.Entities;
+using ARS.Common.Entities.Contracts;
+using ARS.Common.MappingTables;
 using ARS.Common.TrackDataChanges;
+using ARS.Persistance.Configurations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -20,20 +23,28 @@ namespace ARS.Persistance.Context
 
         public DbSet<Role> Roles { get; set; }
 
-        //is this optimal? how do we destinguis when making calls to the DB?
-        //how to structure abstract classes 
-
         public DbSet<Adult> Adults { get; set; }
+
         public DbSet<Aircraft> Aircrafts { get; set; }
+
         public DbSet<Airline> Airlines { get; set; }
+
         public DbSet<Baggage> Baggages { get; set; }
+
         public DbSet<Booking> Bookings { get; set; }
+
         public DbSet<Child> Children { get; set; }
+
         public DbSet<CrewMember> CrewMembers { get; set; }
+
         public DbSet<Destination> Destinations { get; set; }
+
         public DbSet<Flight> Flights { get; set; }
+
         public DbSet<Infant> Infants { get; set; }
+
         public DbSet<User> Users { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,6 +54,13 @@ namespace ARS.Persistance.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Passenger>();
+
+            builder.Entity<FlightsBookings>().HasKey(x =>
+               new { x.FlightId, x.BookingId });
+
+            builder.ApplyConfiguration(new FlightEntityConfiguration());
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
@@ -84,7 +102,7 @@ namespace ARS.Persistance.Context
         private Guid GetCurrentUser()
         {
             var identity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
-            var userId = identity.Claims.FirstOrDefault(x =>
+            var userId = identity?.Claims.FirstOrDefault(x =>
             x.Type == ClaimTypes.NameIdentifier)?.Value;
             return userId != null ? Guid.Parse(userId) : Guid.Empty;
         }

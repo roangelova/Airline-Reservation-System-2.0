@@ -38,12 +38,14 @@ namespace ARS.Common.Entities
         public Aircraft Aircraft { get; set; }
 
         [ForeignKey(nameof(Aircraft))]
+        [Required]
         public Guid AircraftID { get; set; }
 
         [Required]
         public Airline Airline { get; set; }
 
         [ForeignKey(nameof(Airline))]
+        [Required]
         public Guid AirlineId { get; set; }
 
         [Required]
