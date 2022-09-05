@@ -1,4 +1,5 @@
 ﻿using ARS.Common.Entities;
+using ARS.Common.Enums;
 using ARS.Common.TrackDataChanges;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,9 @@ namespace ARS.Common.Entities.Contracts
         [Required]
         [MaxLength(PassengerMaxNameLength)]
         public string LastName { get; set; }
+
+        [Required]
+        public Gender Gender { get; set; }
 
         [Required]
         public DateTime DOB { get; set; }

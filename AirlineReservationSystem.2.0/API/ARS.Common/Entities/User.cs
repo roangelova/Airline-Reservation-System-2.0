@@ -1,4 +1,5 @@
-﻿using ARS.Common.TrackDataChanges;
+﻿using ARS.Common.Enums;
+using ARS.Common.TrackDataChanges;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -20,6 +21,10 @@ namespace ARS.Common.Entities
         [Required]
         [MaxLength(UserNameMaxLength)]
         public string LastName { get; set; }
+
+        public string? Nationality { get; set; }
+
+        public Gender? Gender { get; set; } 
 
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
