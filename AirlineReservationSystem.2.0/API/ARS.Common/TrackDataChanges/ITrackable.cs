@@ -15,5 +15,7 @@ namespace ARS.Common.TrackDataChanges
         public Guid? ModifiedBy { get; set; }
 
         public DateTime? ModifiedAt { get; set; }
+
+        public bool IsActive { get; set; } 
     }
 }

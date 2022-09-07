@@ -27,8 +27,14 @@ namespace ARS.Common.Entities
         public Gender? Gender { get; set; } 
 
         public Guid CreatedBy { get; set; }
+
         public DateTime CreatedAt { get; set; }
+
         public Guid? ModifiedBy { get; set; }
+
         public DateTime? ModifiedAt { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
     }
 }
