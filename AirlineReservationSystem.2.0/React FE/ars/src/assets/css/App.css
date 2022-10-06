@@ -1,60 +1,80 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  box-sizing: border-box;
+  color: #333;
 }
 
 body {
   background-color: rgb(255, 255, 255);
 }
 
-.cutomGradient{
-  background: linear-gradient(135deg, rgb(175, 128, 166) 0%, rgb(151, 83, 132) 69%, rgb(104, 29, 88) 89%) 
+.hero-img {
+  width: 300px;
 }
 
-.container{
-  width: 1100px;
-  margin: auto auto;
+.section-hero-main{
+  width: 1400px;
+  margin: 0px auto;display: flex;
+
+  gap: 50px;
 }
 
-.registerForm{
-  padding-top: 20px;
-  border: 2px grey solid;
-  border-radius: 15px;
-background-color: grey;
-width: 500px;
+.section-hero {
+  height: 500px;
+  background-image: linear-gradient(  to right bottom, #f3f0ff, #e5dbff );
+  background-size: cover;
+
+  margin: 0px auto;
+
+  
+}
+
+.section-hero__text-content {
+  width: 50%;
+}
+.section-hero__images {
+  width:  50%;
+}
+
+.heading-pr {
+  font-size: 45px;
+  margin: 80px auto;
+  display: block;
+}
+
+.section-cta__reasons-list {
+  list-style: none;
+margin-bottom: 30px;
+}
+
+.section-hero__reasons{
+padding-left: 30px;
+}
+
+.section-cta__reason{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.btn{
+  display: inline-block;
+  font-size: 18px;
+  color: inherit;
+  padding: 13px 13px;
+  background-color: #e5dbff;
+  border-radius: 999px;
+
+  transition: all .4s;
+}
+
+.btn:hover{
+transform: scale(1.1);
+color: #555;
 }

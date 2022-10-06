@@ -1,15 +1,11 @@
 import './assets/css/App.css';
-import Header from './components/shared/Header';
+import Hero from './components/common/Hero';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <div className='container'>
-       
-      </div>
-      
-    </div>
+    <>
+        <Hero/>
+    </>
   );
 }
 
