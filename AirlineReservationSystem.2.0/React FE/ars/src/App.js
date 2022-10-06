@@ -1,5 +1,4 @@
 import './assets/css/App.css';
-import RegisterForm from './components/authorization/RegisterForm';
 import Header from './components/shared/Header';
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     <div className="App">
       <Header />
       <div className='container'>
-          <RegisterForm/>    
+       
       </div>
       
     </div>
