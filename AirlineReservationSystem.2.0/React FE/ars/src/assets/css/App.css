@@ -8,73 +8,103 @@
 
 body {
   box-sizing: border-box;
-  color: #333;
+  color: #444;
 }
 
 body {
   background-color: rgb(255, 255, 255);
 }
 
-.hero-img {
-  width: 300px;
+.logo img {
+  height: 90px;
+  filter: grayscale(100%);
+  margin: 5px 0px;
 }
 
-.section-hero-main{
+.heading-pr {
+  padding-top: 100px;
+}
+
+.heading-secondary {
+  margin-bottom: 35px;
+}
+
+.section-hero-main {
   width: 1400px;
-  margin: 0px auto;display: flex;
+  margin: 0px auto;
+  display: flex;
 
   gap: 50px;
 }
 
 .section-hero {
-  height: 500px;
-  background-image: linear-gradient(  to right bottom, #f3f0ff, #e5dbff );
-  background-size: cover;
+  height: 800px;
+  background-image: url("../images/homepage/hero-background.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 
   margin: 0px auto;
-
-  
 }
 
 .section-hero__text-content {
   width: 50%;
 }
-.section-hero__images {
-  width:  50%;
-}
-
 .heading-pr {
   font-size: 45px;
   margin: 80px auto;
   display: block;
 }
 
-.section-cta__reasons-list {
-  list-style: none;
-margin-bottom: 30px;
-}
-
-.section-hero__reasons{
-padding-left: 30px;
-}
-
-.section-cta__reason{
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.btn{
+.btn {
   display: inline-block;
-  font-size: 18px;
-  color: inherit;
-  padding: 13px 13px;
-  background-color: #e5dbff;
+  font-size: 20px;
+  color: #555;
+  padding: 26px 34px;
+  border: 2px solid #fff;
   border-radius: 999px;
 
-  transition: all .4s;
+  background-color: rgba(250, 250, 250, 0.228);
+  transition: all 0.4s;
 }
 
-.btn:hover{
-transform: scale(1.1);
-color: #555;
+.btn:hover {
+  transform: scale(1.1);
+  color: #555;
+}
+
+.header {
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 70px;
+  gap: 1200px;
+}
+
+.header-nav__options {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-nav__item {
+  display: block;
+  padding: 10px 10px;
+  font-size: 25px;
+}
+
+.header-nav__item a:hover {
+  border-bottom: 2px solid #444;
+}
+
+.header-nav__item a {
+  color: inherit;
 }
