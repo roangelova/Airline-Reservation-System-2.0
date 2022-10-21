@@ -18,6 +18,9 @@ const Header = () => {
                         <li className="header-nav__item">
                             <a href="#">Club card</a>
                         </li>
+                        <li className="header-nav__item">
+                            <a href="#">Contact</a>
+                        </li>
                     </ul>
                 </div>
                 <div className="header-nav__user">
