@@ -1,3 +1,4 @@
+using ARS.Api.Middlewares;
 using ARS.Api.ServiceExtensions;
 using ARS.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddApplicationServices();
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -21,13 +19,14 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("ARS", new OpenApiInfo
     {
         Title = "ARS",
-        Version = "v1"
+        Version = "v2"
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseMiddleware<ExceptionMiddleware>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -35,7 +34,6 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/ARS/swagger.json", "ARS");
     });
-
 }
 
 app.UseHttpsRedirection();
