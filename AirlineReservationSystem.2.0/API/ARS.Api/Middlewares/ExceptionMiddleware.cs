@@ -20,7 +20,7 @@ namespace ARS.Api.Middlewares
             this.environment = environment;
         }
 
-        public async Task InvokAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             //has to be called InvokeAsync!
             try
