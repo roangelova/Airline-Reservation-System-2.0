@@ -41,14 +41,10 @@ namespace ARS.Api.Middlewares
                     Title = ex.Message
                 };
 
-                var options = new JsonSerializerOptions
+                await context.Response.WriteAsJsonAsync(response,new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                };
-
-                var json = JsonSerializer.Serialize(response, options);
-
-                await context.Response.WriteAsync(json);
+                });
             }
         }
     }

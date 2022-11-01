@@ -18,7 +18,7 @@ namespace ARS.Persistance.Seed
             }
 
             var destinations = new List<Destination>();
-            var pathToJon = Path.Combine(Path.GetFullPath)
+           // var pathToJon = Path.Combine(Path.GetFullPath)
 
         }
     }
