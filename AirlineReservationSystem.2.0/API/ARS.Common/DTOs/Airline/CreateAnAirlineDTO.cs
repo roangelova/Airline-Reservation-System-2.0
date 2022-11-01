@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARS.Common.DTOs.Create
+namespace ARS.Common.DTOs.Airline
 {
     public class CreateAnAirlineDTO
     {

@@ -2,7 +2,7 @@
 using ARS.Common.Entities.Contracts;
 using ARS.Common.MappingTables;
 using ARS.Common.TrackDataChanges;
-using ARS.Persistance.Configurations;
+using ARS.Persistance.DbConfigurations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

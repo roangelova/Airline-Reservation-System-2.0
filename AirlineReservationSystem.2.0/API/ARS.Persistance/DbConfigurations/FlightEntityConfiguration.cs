@@ -1,8 +1,9 @@
 ﻿using ARS.Common.Entities;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ARS.Persistance.Configurations
+namespace ARS.Persistance.DbConfigurations
 {
     public class FlightEntityConfiguration : IEntityTypeConfiguration<Flight>
     {
@@ -20,9 +21,9 @@ namespace ARS.Persistance.Configurations
                 .WithMany(x => x.Flights)
                 .OnDelete(DeleteBehavior.Restrict);
 
-           // builder.HasOne(x => x.FlightsBookings)
-           //     .WithMany()
-           //     .OnDelete(DeleteBehavior.Restrict);
+            // builder.HasOne(x => x.FlightsBookings)
+            //     .WithMany()
+            //     .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

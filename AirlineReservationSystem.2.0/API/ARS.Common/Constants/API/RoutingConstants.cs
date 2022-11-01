@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.Constants.API
 {
-    internal class RoutingConstants
+    public class RoutingConstants
     {
     }
 }

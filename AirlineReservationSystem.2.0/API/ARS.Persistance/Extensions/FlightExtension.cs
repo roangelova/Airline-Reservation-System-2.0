@@ -10,6 +10,7 @@ namespace ARS.Persistance.Extensions
 {
     public static class FlightExtension
     {
+        //TODO: SHOULD BE GENERIC ==> CREATE GENERIC REPO
 
         public static IQueryable<Flight> Sort(this IQueryable<Flight> query, string orderBy)
         {
@@ -39,6 +40,13 @@ namespace ARS.Persistance.Extensions
             //Type of search param
             //TODO: implement -> departing airport, arriving airport + airlne name 
             //  return query.Where....
+
+            return query;
+        }
+
+        public static IQueryable<Flight> Filter5 (this IQueryable<Flight> query, string brands, string types)
+        {
+            //for example filter by multiple airports, airlines et.. 
 
             return query;
         }
