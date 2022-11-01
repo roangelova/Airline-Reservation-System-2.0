@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ARS.Common.Constants.EntityConstants;
+using static ARS.Common.Constants.EntityConstraintsConstants;
 
 namespace ARS.Common.Entities
 {

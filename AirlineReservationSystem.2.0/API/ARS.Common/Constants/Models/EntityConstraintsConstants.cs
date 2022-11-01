@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARS.Common.Constants
+namespace ARS.Common.Constants.models
 {
-    public class EntityConstants
+    public class EntityConstraintsConstants
     {
-        public const int AircraftModelMaxLength= 50;
-        public const int AircraftImageUrlMaxLength= 2000;
-        
-        public const int AirlineMaxNameLength= 50;
-        public const int AirlineMaxDescriptionLength= 50;
-        public const int AirlineMaxLogoImageLength= 2000;
+        public const int AircraftModelMaxLength = 50;
+        public const int AircraftImageUrlMaxLength = 2000;
+
+        public const int AirlineMaxNameLength = 50;
+        public const int AirlineMaxDescriptionLength = 50;
+        public const int AirlineMaxLogoImageLength = 2000;
 
         public const int CrewMemberMaxNameLength = 80;
         public const int CrewMemberMaxAvatarUrl = 2000;

@@ -1,4 +1,5 @@
 ﻿using ARS.Common.TrackDataChanges;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ARS.Common.Constants.EntityConstants;
+
+using static ARS.Common.Constants.models.EntityConstraintsConstants;
 
 namespace ARS.Common.Entities
 {
