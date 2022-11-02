@@ -17,19 +17,15 @@ namespace ARS.Service.Services
 {
     public class TokenService : ITokenService
     {
-
-        private readonly IUnitOfWork UnitOfWork;
         private readonly IOptions<JwtTokenConfigurationModel> jwtconfig;
-        private readonly RoleManager<Role> roleManager;
+        private readonly UserManager<User> userManager;
 
         public TokenService(
-            IUnitOfWork unitOfWork,
             IOptions<JwtTokenConfigurationModel> jwtconfig,
-            RoleManager<Role> roleManager)
+            UserManager<User> userManager)
         {
-            this.UnitOfWork = unitOfWork;
             this.jwtconfig = jwtconfig;
-            this.roleManager = roleManager;
+            this.userManager = userManager;
         }
 
         public Task<JwtTokenModel> CreateJwtToken(User user)
@@ -48,9 +44,9 @@ namespace ARS.Service.Services
         private async Task<string> GenerateAccessToken(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtconfig.Value.Key));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512);
 
-           //var role = await UnitOfWork.Roles.GetByIdAsync(user.RoleId);
+           var role = await userManager.GetRolesAsync(user);
 
             var claims = new[]
             {
