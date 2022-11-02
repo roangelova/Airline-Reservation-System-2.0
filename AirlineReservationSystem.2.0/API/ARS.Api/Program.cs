@@ -1,5 +1,6 @@
 using ARS.Api.Middlewares;
 using ARS.Api.ServiceExtensions;
+using ARS.Common.Configurations;
 using ARS.Common.Entities;
 using ARS.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer
     (builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<User, Role>();
+var jwtConfig = builder.Configuration.GetSection("Jwt");
+builder.Services.Configure<JwtTokenConfigurationModel>(jwtConfig);
+
+
+
+builder.Services.AddIdentityCore<User>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+})
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
 
 builder.Services.AddApplicationServices();
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

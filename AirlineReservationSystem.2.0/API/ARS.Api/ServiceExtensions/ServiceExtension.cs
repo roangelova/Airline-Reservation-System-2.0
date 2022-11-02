@@ -1,10 +1,23 @@
-﻿namespace ARS.Api.ServiceExtensions
+﻿using ARS.Persistance.GenericRepository;
+using ARS.Persistance.Repositories;
+using ARS.Persistance.Repositories.Contracts;
+using ARS.Persistance.UnitOfWork;
+using ARS.Service.Contracts;
+using ARS.Service.Services;
+
+namespace ARS.Api.ServiceExtensions
 {
     public static class ServiceExtension
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IAirlineRepository, AirlineRepository>();
+
+            services.AddScoped<IAirlineService, AirlineService>();
 
             return services;
         }

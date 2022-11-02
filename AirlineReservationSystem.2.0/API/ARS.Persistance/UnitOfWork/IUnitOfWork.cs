@@ -8,7 +8,7 @@ using ARS.Persistance.Repositories.Contracts;
 
 namespace ARS.Persistance.UnitOfWork
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IAirlineRepository Airlines { get; set; }
         public Task<int> CompleteAsync();

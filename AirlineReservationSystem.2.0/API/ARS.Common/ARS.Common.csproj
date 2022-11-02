@@ -12,8 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Constants\Error Constants\ErrorMessageConstants.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+    <Compile Update="Constants\ErrorConstants\ErrorMessageConstants.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorMessageConstants.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Constants\ErrorConstants\ErrorMessageConstants.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessageConstants.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
