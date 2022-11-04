@@ -16,9 +16,8 @@ body {
 }
 
 .logo img {
-  height: 90px;
+  height: 100%;
   filter: grayscale(100%);
-  margin: 5px 0px;
 }
 
 .heading-pr {
@@ -78,6 +77,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  overflow: hidden;
 }
 
 .header-nav {
