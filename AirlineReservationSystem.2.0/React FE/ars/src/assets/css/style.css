@@ -1,0 +1,13 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  box-sizing: border-box;
+  color: #444;
+  background-color: white;
+  font-family: "Nunito", serif;
+  font-weight: 400;

@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    color: #444;
+    background-color: rgb(255, 255, 255);
+    font-family: "Nunito", serif;
+    font-weight: 400;
+    background-color: #d0bfff;
+  }
