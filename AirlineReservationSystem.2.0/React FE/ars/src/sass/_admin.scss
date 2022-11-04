@@ -1,0 +1,66 @@
+.admin {
+  
+  width: 100vw;
+  height: 100vh;
+  padding: 4rem 3rem;
+  margin: 0 auto;
+  display: flex;
+
+  &Nav-block {
+    height: 100%;
+    width: 20%;
+    margin: 0 3rem;
+    background-color: $admin-color-primary;
+    border-radius: 1rem;
+    padding: 5rem 5rem;
+  }
+
+  &Nav-block img{
+    height: 12rem;
+    margin-bottom: 5rem;
+    mix-blend-mode: multiply;
+  }
+
+  &Nav-user {
+    display: flex;
+    margin-bottom: 4em;
+  }
+ 
+  &Nav-user img {
+    height: 6rem;
+    border-radius: 50%;
+    padding-right: 1rem;
+  }
+
+  &Nav-userData img {
+    height: 6rem;
+    border-radius: 50%;
+  }
+  &Nav-userData span {
+   font-size: 2.5rem;
+   display: block;
+
+   &:last-child{
+    font-size: 2rem;
+   }
+  }
+
+  &Nav-list{
+    list-style: none;
+  }
+
+  &Nav-list--item{
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+  }
+
+}
+
+
+.adminMain{
+    height: 100%;
+    background-color: $color-primary;
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+}

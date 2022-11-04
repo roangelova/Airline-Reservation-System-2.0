@@ -5,9 +5,58 @@
   padding: 0;
   box-sizing: inherit; }
 
-body {
+html {
   box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
   color: #444;
   background-color: white;
   font-family: "Nunito", serif;
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 1.6; }
+
+.admin {
+  width: 100vw;
+  height: 100vh;
+  padding: 4rem 3rem;
+  margin: 0 auto;
+  display: flex; }
+  .adminNav-block {
+    height: 100%;
+    width: 20%;
+    margin: 0 3rem;
+    background-color: #fbf7f4;
+    border-radius: 1rem;
+    padding: 5rem 5rem; }
+  .adminNav-block img {
+    height: 12rem;
+    margin-bottom: 5rem;
+    mix-blend-mode: multiply; }
+  .adminNav-user {
+    display: flex;
+    margin-bottom: 4em; }
+  .adminNav-user img {
+    height: 6rem;
+    border-radius: 50%;
+    padding-right: 1rem; }
+  .adminNav-userData img {
+    height: 6rem;
+    border-radius: 50%; }
+  .adminNav-userData span {
+    font-size: 2.5rem;
+    display: block; }
+    .adminNav-userData span:last-child {
+      font-size: 2rem; }
+  .adminNav-list {
+    list-style: none; }
+  .adminNav-list--item {
+    font-size: 3.5rem;
+    letter-spacing: 1px; }
+
+.adminMain {
+  height: 100%;
+  background-color: #b8c5c5;
+  width: 100%;
+  display: block;
+  border-radius: 1rem; }
