@@ -22,7 +22,7 @@ namespace ARS.Api.Middlewares
 
         public async Task InvokeAsync(HttpContext context)
         {
-            //has to be called InvokeAsync!
+            //method has to be called InvokeAsync!
             try
             {
                 await next(context);
