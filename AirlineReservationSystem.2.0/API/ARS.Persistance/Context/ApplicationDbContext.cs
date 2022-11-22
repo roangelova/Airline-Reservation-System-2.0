@@ -3,6 +3,8 @@ using ARS.Common.Entities.Contracts;
 using ARS.Common.MappingTables;
 using ARS.Common.TrackDataChanges;
 using ARS.Persistance.DbConfigurations;
+using ARS.Persistance.Seed;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -103,7 +105,8 @@ namespace ARS.Persistance.Context
 
         private Guid GetCurrentUser()
         {
-            var identity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+            //TODO: extract this as a helper 
+            var identity = httpContextAccessor.HttpContext?.User?.Identity as ClaimsIdentity;
             var userId = identity?.Claims.FirstOrDefault(x =>
             x.Type == ClaimTypes.NameIdentifier)?.Value;
             return userId != null ? Guid.Parse(userId) : Guid.Empty;

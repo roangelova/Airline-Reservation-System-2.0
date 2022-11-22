@@ -18,11 +18,11 @@ namespace ARS.Api.Controllers
             this.userService = userService;
         }
 
-        [HttpPost]
+        [HttpPost(nameof(RegisterUserAsync))]
         [AllowAnonymous]
-        public async Task<ActionResult> Register(RegisterUserDTO registerUserDto)
+        public async Task<ActionResult> RegisterUserAsync(RegisterUserDTO registerUserDto)
         {
-            Console.WriteLine(registerUserDto);
+            
             return Ok();
         }
     }

@@ -5,6 +5,7 @@ using ARS.Api.ServiceExtensions;
 using ARS.Common.Configurations;
 using ARS.Common.Entities;
 using ARS.Persistance.Context;
+using ARS.Persistance.Seed;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -85,7 +86,15 @@ builder.Services.AddSwaggerGen(c =>
 
 });
 
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var DbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    DbInitializer.SeedInitialData(DbContext).Wait();
+}
+
 
 app.UseMiddleware<ExceptionMiddleware>();
 

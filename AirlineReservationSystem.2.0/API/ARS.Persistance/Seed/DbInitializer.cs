@@ -1,5 +1,8 @@
 ﻿using ARS.Common.Entities;
 using ARS.Persistance.Context;
+
+using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ARS.Persistance.Seed
 {
-    public static class  DbInitializer
+    public static class DbInitializer
     {
-        public static void SeedInitialData(ApplicationDbContext context)
+        public static async Task SeedInitialData(ApplicationDbContext context)
         {
             if (context.Destinations.Any())
             {
@@ -18,7 +21,15 @@ namespace ARS.Persistance.Seed
             }
 
             var destinations = new List<Destination>();
-           // var pathToJon = Path.Combine(Path.GetFullPath)
+
+            string path = Path.GetFullPath("EuropeAirports.json");
+
+            //TODO : REFACTOR
+            var json = File.ReadAllText(Path.GetFullPath(@"C:\Users\RoslavaAngelova\Documents\training\ARS.2.0\Airline-Reservation-System-2.0\AirlineReservationSystem.2.0\API\ARS.Persistance\SeedData\EuropeAirports.json"));
+
+            destinations = JsonConvert.DeserializeObject<List<Destination>>(json);
+            await context.Destinations.AddRangeAsync(destinations);
+            await context.SaveChangesAsync();
 
         }
     }

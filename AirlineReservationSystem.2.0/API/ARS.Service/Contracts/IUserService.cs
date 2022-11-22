@@ -12,6 +12,6 @@ namespace ARS.Service.Contracts
     public interface IUserService
     {
         Task<User> RegisterUser(RegisterUserDTO registerDTO);
-        Task<bool> CheckUserExists(string userId);
+        Task<bool> CheckIfUserExists(string userId);
     }
 }

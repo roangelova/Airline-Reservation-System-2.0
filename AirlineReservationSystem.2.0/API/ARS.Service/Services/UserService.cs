@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ARS.Common.Constants.ErrorConstants;
 using ARS.Common.DTOs.User;
 using ARS.Common.Entities;
+using ARS.Common.Entities.NotMapped;
 using ARS.Common.Enums;
 using ARS.Persistance.UnitOfWork;
 using ARS.Service.Contracts;
@@ -29,6 +30,7 @@ namespace ARS.Service.Services
             try
             {
                 //TODO - check if username is taken 
+               await CheckIfEmailOrUsernameIsUnique(registerDTO.UserName, registerDTO.Email);
 
                 var user = new User
                 {
@@ -40,7 +42,18 @@ namespace ARS.Service.Services
                     Nationality = registerDTO.Nationality
                 };
 
-                await userManager.CreateAsync(user, registerDTO.Password);
+               var result = await userManager.CreateAsync(user, registerDTO.Password);
+
+                if (!result.Succeeded)
+                {
+                    var errorModel = new ErrorModel();
+
+                }
+
+
+                //TODO --> add to role customer 
+
+                return user;
             }
             catch (Exception)
             {
@@ -49,7 +62,7 @@ namespace ARS.Service.Services
 
         }
 
-        public async Task<bool> CheckUserExists(string userId)
+        public async Task<bool> CheckIfUserExists(string userId)
         {
             var user = await userManager.FindByIdAsync(userId);
 
@@ -63,16 +76,33 @@ namespace ARS.Service.Services
 
 
         /// <summary>
-        /// 
+        /// Checks if there is already a registered user with the provided username or email.
         /// </summary>
-        /// <param name="registerDTO"></param>
-        /// <returns></returns>
+        /// <param name="username">Username to check</param>
+        /// <param name="email">Email to check</param>
+        /// <returns>True if both values are unique. False if either value is not unique</returns>
         private async Task<bool> CheckIfEmailOrUsernameIsUnique (string username, string email)
         {
             //TODO: implement 
+            //in 1 method to do 1 db query, But also provide info WHICH ONE is not unique
 
-            return false;
+            var checkEmail = await userManager.FindByEmailAsync(email);
 
+            if(checkEmail != null)
+            {
+                throw new Exception(string.Join(ErrorMessageConstants.EmailOrUsernameNotUnique, nameof(email)));
+                return false;
+            }
+
+            var checkUserName = await userManager.FindByNameAsync(username);
+
+            if (checkUserName != null)
+            {
+                throw new Exception(string.Join(ErrorMessageConstants.EmailOrUsernameNotUnique, nameof(username)));
+                return false;
+            }
+
+            return true;
         }
 
     }

@@ -8,11 +8,12 @@ namespace ARS.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AutthorizationController : BaseApiController
+    public class AuthorizationController : BaseApiController
     {
-        [HttpPost("login")]
-        public async Task<ActionResult> Login(LoginDTO loginDTO)
+        [HttpPost(nameof(LoginAsync))]
+        public async Task<ActionResult> LoginAsync(LoginDTO loginDTO)
         {
+
             return Ok();
         }
     }
