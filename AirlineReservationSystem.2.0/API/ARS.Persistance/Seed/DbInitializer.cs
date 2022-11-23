@@ -12,12 +12,12 @@ namespace ARS.Persistance.Seed
         {
             if (!context.Destinations.Any())
             {
-               await SeedDestinations(context);
+                await SeedDestinations(context);
             }
 
             if (!context.Roles.Any())
             {
-              await  SeedRoles(context);
+                await SeedRoles(context);
             }
 
         }
@@ -49,11 +49,23 @@ namespace ARS.Persistance.Seed
         {
             try
             {
-                var GlobalAdmin = new Role { Name = RoleConstants.GlobalAdmin };
+                var GlobalAdmin = new Role
+                {
+                    Name = RoleConstants.GlobalAdmin,
+                    NormalizedName = RoleConstants.GlobalAdmin.ToUpper()
+                };
 
-                var AirlineAdmin = new Role { Name = RoleConstants.AirlineAdmin };
+                var AirlineAdmin = new Role
+                {
+                    Name = RoleConstants.AirlineAdmin,
+                    NormalizedName = RoleConstants.AirlineAdmin.ToUpper()
+                };
 
-                var Customer = new Role { Name = RoleConstants.Customer };
+                var Customer = new Role
+                {
+                    Name = RoleConstants.Customer,
+                    NormalizedName = RoleConstants.Customer.ToUpper()
+                };
 
                 await context.Roles.AddRangeAsync(GlobalAdmin, AirlineAdmin, Customer);
                 await context.SaveChangesAsync();

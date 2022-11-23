@@ -22,7 +22,8 @@ namespace ARS.Api.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> RegisterUserAsync(RegisterUserDTO registerUserDto)
         {
-            
+            await userService.RegisterUser(registerUserDto);
+
             return Ok();
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ARS.Common.Constants.ErrorConstants;
+using ARS.Common.Constants.Roles;
 using ARS.Common.DTOs.User;
 using ARS.Common.Entities;
 using ARS.Common.Entities.NotMapped;
@@ -20,7 +21,8 @@ namespace ARS.Service.Services
     {
         private readonly UserManager<User> userManager;
 
-        public UserService(UserManager<User> userManager)
+        public UserService(
+            UserManager<User> userManager)
         {
             this.userManager = userManager;
         }
@@ -29,12 +31,10 @@ namespace ARS.Service.Services
         {
             try
             {
-                //TODO - check if username is taken 
-               await CheckIfEmailOrUsernameIsUnique(registerDTO.UserName, registerDTO.Email);
-
                 var user = new User
                 {
                     Id = Guid.NewGuid(),
+                    Email = registerDTO.Email,
                     FirstName = registerDTO.FirstName,
                     LastName = registerDTO.LastName,
                     UserName = registerDTO.UserName,
@@ -42,16 +42,15 @@ namespace ARS.Service.Services
                     Nationality = registerDTO.Nationality
                 };
 
-               var result = await userManager.CreateAsync(user, registerDTO.Password);
+                var result = await userManager.CreateAsync(user, registerDTO.Password);
 
                 if (!result.Succeeded)
                 {
-                    var errorModel = new ErrorModel();
+                    throw new Exception(string.Join(Environment.NewLine, result.Errors.Select( x => x.Description)));
 
                 }
 
-
-                //TODO --> add to role customer 
+                await userManager.AddToRoleAsync(user, RoleConstants.Customer);
 
                 return user;
             }
@@ -68,37 +67,6 @@ namespace ARS.Service.Services
 
             if (user == null)
             {
-                return false;
-            }
-
-            return true;
-        }
-
-
-        /// <summary>
-        /// Checks if there is already a registered user with the provided username or email.
-        /// </summary>
-        /// <param name="username">Username to check</param>
-        /// <param name="email">Email to check</param>
-        /// <returns>True if both values are unique. False if either value is not unique</returns>
-        private async Task<bool> CheckIfEmailOrUsernameIsUnique (string username, string email)
-        {
-            //TODO: implement 
-            //in 1 method to do 1 db query, But also provide info WHICH ONE is not unique
-
-            var checkEmail = await userManager.FindByEmailAsync(email);
-
-            if(checkEmail != null)
-            {
-                throw new Exception(string.Join(ErrorMessageConstants.EmailOrUsernameNotUnique, nameof(email)));
-                return false;
-            }
-
-            var checkUserName = await userManager.FindByNameAsync(username);
-
-            if (checkUserName != null)
-            {
-                throw new Exception(string.Join(ErrorMessageConstants.EmailOrUsernameNotUnique, nameof(username)));
                 return false;
             }
 
