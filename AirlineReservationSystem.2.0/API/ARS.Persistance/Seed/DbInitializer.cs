@@ -1,13 +1,8 @@
-﻿using ARS.Common.Entities;
+﻿using ARS.Common.Constants.Roles;
+using ARS.Common.Entities;
 using ARS.Persistance.Context;
 
 using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ARS.Persistance.Seed
 {
@@ -15,22 +10,61 @@ namespace ARS.Persistance.Seed
     {
         public static async Task SeedInitialData(ApplicationDbContext context)
         {
-            if (context.Destinations.Any())
+            if (!context.Destinations.Any())
             {
-                return;
+               await SeedDestinations(context);
             }
 
-            var destinations = new List<Destination>();
+            if (!context.Roles.Any())
+            {
+              await  SeedRoles(context);
+            }
 
-            string path = Path.GetFullPath("EuropeAirports.json");
+        }
 
-            //TODO : REFACTOR
-            var json = File.ReadAllText(Path.GetFullPath(@"C:\Users\RoslavaAngelova\Documents\training\ARS.2.0\Airline-Reservation-System-2.0\AirlineReservationSystem.2.0\API\ARS.Persistance\SeedData\EuropeAirports.json"));
+        private static async Task SeedDestinations(ApplicationDbContext context)
+        {
+            try
+            {
+                var destinations = new List<Destination>();
 
-            destinations = JsonConvert.DeserializeObject<List<Destination>>(json);
-            await context.Destinations.AddRangeAsync(destinations);
-            await context.SaveChangesAsync();
+                string path = Path.GetFullPath("EuropeAirports.json");
+
+                //TODO : REFACTOR
+                var json = File.ReadAllText(Path.GetFullPath(@"C:\Users\RoslavaAngelova\Documents\training\ARS.2.0\Airline-Reservation-System-2.0\AirlineReservationSystem.2.0\API\ARS.Persistance\SeedData\EuropeAirports.json"));
+
+                destinations = JsonConvert.DeserializeObject<List<Destination>>(json);
+
+                await context.Destinations.AddRangeAsync(destinations);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private static async Task SeedRoles(ApplicationDbContext context)
+        {
+            try
+            {
+                var GlobalAdmin = new Role { Name = RoleConstants.GlobalAdmin };
+
+                var AirlineAdmin = new Role { Name = RoleConstants.AirlineAdmin };
+
+                var Customer = new Role { Name = RoleConstants.Customer };
+
+                await context.Roles.AddRangeAsync(GlobalAdmin, AirlineAdmin, Customer);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
     }
+
 }
