@@ -4,16 +4,17 @@ using ARS.Api.Controllers.BaseControllers;
 using ARS.Common.DTOs.User;
 using ARS.Service.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using ARS.Common.Constants.API;
 
 namespace ARS.Api.Controllers
 {
-    [Route("api/Users")]
+    [Route(RoutingConstants.UserRoute)]
     [ApiController]
-    public class UserAccountController : BaseApiController
+    public class UserController : BaseApiController
     {
         private readonly IUserService userService;
 
-        public UserAccountController(IUserService userService)
+        public UserController(IUserService userService)
         {
             this.userService = userService;
         }
