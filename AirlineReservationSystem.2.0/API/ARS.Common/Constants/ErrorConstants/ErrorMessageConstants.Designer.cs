@@ -61,11 +61,11 @@ namespace ARS.Common.Constants.ErrorConstants {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A user with this {0} already exists! Please choose a new one..
+        ///   Looks up a localized string similar to Unsuccessful login! Please check the provided data and try again..
         /// </summary>
-        public static string EmailOrUsernameNotUnique {
+        public static string LoginFailed {
             get {
-                return ResourceManager.GetString("EmailOrUsernameNotUnique", resourceCulture);
+                return ResourceManager.GetString("LoginFailed", resourceCulture);
             }
         }
         

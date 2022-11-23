@@ -20,11 +20,14 @@ namespace ARS.Service.Services
     public class UserService : IUserService
     {
         private readonly UserManager<User> userManager;
+        private readonly IAuthenticationService authenticationService;
 
         public UserService(
-            UserManager<User> userManager)
+            UserManager<User> userManager, 
+            IAuthenticationService authenticationService)
         {
             this.userManager = userManager;
+            this.authenticationService = authenticationService;
         }
 
         public async Task<User> RegisterUser(RegisterUserDTO registerDTO)
@@ -61,6 +64,8 @@ namespace ARS.Service.Services
 
         }
 
+
+        //TODO: clear if not used
         public async Task<bool> CheckIfUserExists(string userId)
         {
             var user = await userManager.FindByIdAsync(userId);

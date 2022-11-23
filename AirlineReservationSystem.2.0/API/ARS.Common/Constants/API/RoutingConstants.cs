@@ -10,7 +10,7 @@ namespace ARS.Common.Constants.API
     {
         public const string UserRoute = "User";
 
-        public const string AuthorizationRoute = "Authorization";
+        public const string AuthenticationRoute = "Authentiction";
 
         public const string AirlineRoute = "Airline";
     }

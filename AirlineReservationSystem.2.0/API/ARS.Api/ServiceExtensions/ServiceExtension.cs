@@ -13,13 +13,16 @@ namespace ARS.Api.ServiceExtensions
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddMemoryCache();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IAirlineRepository, AirlineRepository>();
 
             services.AddScoped<IAirlineService, AirlineService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAirlineService, AirlineService>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<ITokenService, TokenService>();
 
             return services;
         }
