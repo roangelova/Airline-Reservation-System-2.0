@@ -21,26 +21,21 @@ namespace ARS.Service.Services
             UnitOfWork = unitOfWork;
         }
 
-        public async Task<Airline> CreateAnAirlineAsync(CreateAnAirlineDTO createDTO)
+        public async Task CreateAirlineAsync(CreateAirlineDTO createDTO)
         {
             try
             {
-                //TODO: check if name is uniqe
-                
                 var airline = new Airline
                 {
-                    AirlineName = createDTO.AirlineName,
-                    Description = createDTO?.AirlineDescription,
-                    AirlineLogo = createDTO?.AirlineLogo,
-                    AdminId = createDTO?.AirlineAdmin ?? Guid.Empty
+                    AirlineName = createDTO.Name,
+                    Description = createDTO?.Description,
+                    AirlineLogo = createDTO?.LogoUrl,
+                    AdminId = createDTO?.AdminId ?? Guid.Empty
                 };
 
                 await UnitOfWork.Airlines.AddAsync(airline);
                 await UnitOfWork.CompleteAsync();
 
-                //savetodb
-
-                return airline;
             }
             catch (Exception)
             {

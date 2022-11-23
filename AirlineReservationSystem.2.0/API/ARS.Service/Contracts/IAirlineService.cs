@@ -14,7 +14,7 @@ namespace ARS.Service.Contracts
         //GET
 
         //POST
-        public Task<Airline> CreateAnAirlineAsync(CreateAnAirlineDTO createDTO);
+        public Task CreateAirlineAsync(CreateAirlineDTO createDTO);
 
         //PUT
 

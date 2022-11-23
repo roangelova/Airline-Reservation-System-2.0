@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.DTOs.Airline
 {
-    public class CreateAnAirlineDTO
+    public class CreateAirlineDTO
     {
         [Required]
-        public string AirlineName { get; set; }
+        public string Name { get; set; }
 
-        public string AirlineDescription { get; set; }
+        public string Description { get; set; }
 
-        public string AirlineLogo { get; set; }
+        public string? LogoUrl { get; set; }
 
-        public Guid? AirlineAdmin { get; set; }
+        public Guid? AdminId { get; set; }
     }
 
 }

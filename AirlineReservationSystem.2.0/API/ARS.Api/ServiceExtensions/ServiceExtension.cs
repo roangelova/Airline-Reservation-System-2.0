@@ -19,6 +19,7 @@ namespace ARS.Api.ServiceExtensions
 
             services.AddScoped<IAirlineService, AirlineService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAirlineService, AirlineService>();
 
             return services;
         }
