@@ -30,7 +30,7 @@ namespace ARS.Service.Services
                     AirlineName = createDTO.Name,
                     Description = createDTO?.Description,
                     AirlineLogo = createDTO?.LogoUrl,
-                    AdminId = createDTO?.AdminId ?? Guid.Empty
+                    AdminId = createDTO?.AdminId  ?? null
                 };
 
                 await UnitOfWork.Airlines.AddAsync(airline);

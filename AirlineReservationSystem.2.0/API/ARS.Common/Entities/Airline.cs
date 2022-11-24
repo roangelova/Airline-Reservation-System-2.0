@@ -28,9 +28,9 @@ namespace ARS.Common.Entities
         public string? AirlineLogo { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid AdminId { get; set; }
+        public Guid? AdminId { get; set; }
 
-        public User User { get; set; }
+        public User? User { get; set; }
 
         public List<Flight> Flights { get; set; } = new List<Flight>();
 

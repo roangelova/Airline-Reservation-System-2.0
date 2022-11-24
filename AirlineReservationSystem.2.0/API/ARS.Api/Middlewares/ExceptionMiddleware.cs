@@ -37,7 +37,7 @@ namespace ARS.Api.Middlewares
                 var response = new ErrorModel
                 {
                     Status = 500,
-                    Details = environment.IsDevelopment() ? ex.StackTrace?.ToString() : null,
+                    Details = environment.IsDevelopment() ? ex.InnerException?.ToString() : null,
                     Title = ex.Message
                 };
 

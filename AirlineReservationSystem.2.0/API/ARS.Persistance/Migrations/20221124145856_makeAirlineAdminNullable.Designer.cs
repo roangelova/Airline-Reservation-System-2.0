@@ -4,6 +4,7 @@ using ARS.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS.Persistance.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221124145856_makeAirlineAdminNullable")]
+    partial class makeAirlineAdminNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +68,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("AirlineId");
 
-                    b.ToTable("Aircrafts", (string)null);
+                    b.ToTable("Aircrafts");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Airline", b =>
@@ -110,7 +112,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("AdminId");
 
-                    b.ToTable("Airlines", (string)null);
+                    b.ToTable("Airlines");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Announcement", b =>
@@ -134,7 +136,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("AirlineId");
 
-                    b.ToTable("Announcements", (string)null);
+                    b.ToTable("Announcements");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Baggage", b =>
@@ -171,7 +173,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("BookingNumber");
 
-                    b.ToTable("Baggages", (string)null);
+                    b.ToTable("Baggages");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Booking", b =>
@@ -208,7 +210,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bookings", (string)null);
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Contracts.Passenger", b =>
@@ -269,7 +271,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Passenger", (string)null);
+                    b.ToTable("Passenger");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.CrewMember", b =>
@@ -315,7 +317,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("AirlineId");
 
-                    b.ToTable("CrewMembers", (string)null);
+                    b.ToTable("CrewMembers");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Destination", b =>
@@ -357,7 +359,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Destinations", (string)null);
+                    b.ToTable("Destinations");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Flight", b =>
@@ -418,7 +420,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("OriginId");
 
-                    b.ToTable("Flights", (string)null);
+                    b.ToTable("Flights");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Role", b =>
@@ -573,7 +575,7 @@ namespace ARS.Persistance.Migrations
 
                     b.HasIndex("BookingId");
 
-                    b.ToTable("FlightsBookings", (string)null);
+                    b.ToTable("FlightsBookings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -683,21 +685,21 @@ namespace ARS.Persistance.Migrations
                 {
                     b.HasBaseType("ARS.Common.Entities.Contracts.Passenger");
 
-                    b.ToTable("Adults", (string)null);
+                    b.ToTable("Adults");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Child", b =>
                 {
                     b.HasBaseType("ARS.Common.Entities.Contracts.Passenger");
 
-                    b.ToTable("Children", (string)null);
+                    b.ToTable("Children");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Infant", b =>
                 {
                     b.HasBaseType("ARS.Common.Entities.Contracts.Passenger");
 
-                    b.ToTable("Infants", (string)null);
+                    b.ToTable("Infants");
                 });
 
             modelBuilder.Entity("ARS.Common.Entities.Aircraft", b =>
