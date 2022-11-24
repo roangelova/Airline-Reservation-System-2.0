@@ -47,12 +47,21 @@ namespace ARS.Service.Services
                     throw new Exception(string.Join(ErrorMessageConstants.UserNotFound, nameof(loginDTO.Email), loginDTO.Email));
                 }
 
+                if(user.LockoutEnd > DateTime.UtcNow)
+                {
+                    throw new Exception($"User is locked out unil {user.LockoutEnd}");
+                }
+
                 var result = await userManager.CheckPasswordAsync(user, loginDTO.Password);
 
                 if (!result)
                 {
+                    await userManager.AccessFailedAsync(user);
                     throw new Exception(ErrorMessageConstants.LoginFailed);
                 }
+
+                user.AccessFailedCount = 0;
+                await userManager.UpdateAsync(user);
 
                 var tokenModel = await tokenService.CreateJwtToken(user);
 
