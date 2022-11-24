@@ -1,5 +1,6 @@
 ﻿
 using ARS.Common.DTOs.Airline;
+using ARS.Common.DTOs.User;
 
 namespace ARS.Service.Contracts
 {
@@ -9,6 +10,8 @@ namespace ARS.Service.Contracts
 
         //POST
         public Task CreateAirlineAsync(CreateAirlineDTO createDTO);
+
+        public Task AssignAdminToAirline(Guid adminId, Guid airlineId);
 
         //PUT
 

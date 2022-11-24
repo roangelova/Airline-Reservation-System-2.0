@@ -27,12 +27,20 @@ namespace ARS.Api.Controllers
         [HttpPost(nameof(CreateAirlineAsync))]
         public async Task<IActionResult> CreateAirlineAsync(CreateAirlineDTO createAirlineDTO)
         {
-
-            //todo: create admin -> how are we gonna create admin for the airlie
-
             await airlineService.CreateAirlineAsync(createAirlineDTO);
 
             return StatusCode(201);
+        }
+
+
+        [HttpPost(nameof(CreateAirlineAdminAsync))]
+        public async Task<IActionResult> CreateAirlineAdminAsync(CreateAirlineAdminDTO createDTO)
+        {
+            var adminId = await userService.CreateAirlineAdminAsync(createDTO);
+
+            await airlineService.AssignAdminToAirline(adminId, Guid.Parse(createDTO.AirlineId));
+
+            return Ok();
         }
     }
 }

@@ -70,6 +70,15 @@ namespace ARS.Common.Constants.ErrorConstants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No {0} with Id {1} found!.
+        /// </summary>
+        public static string Object_is_null {
+            get {
+                return ResourceManager.GetString("Object is null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User with {0} {1} was not found!.
         /// </summary>
         public static string UserNotFound {

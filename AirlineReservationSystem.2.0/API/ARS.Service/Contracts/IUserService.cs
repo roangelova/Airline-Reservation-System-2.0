@@ -13,5 +13,7 @@ namespace ARS.Service.Contracts
     {
         Task<User> RegisterUser(RegisterUserDTO registerDTO);
         Task<bool> CheckIfUserExists(string userId);
+
+        public Task<Guid> CreateAirlineAdminAsync(CreateAirlineAdminDTO createDTO);
     }
 }

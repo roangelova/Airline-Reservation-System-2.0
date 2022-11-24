@@ -22,5 +22,8 @@ namespace ARS.Common.DTOs.User
         public string RepresentativesLastName { get; set; }
 
         public string Password { get; set; }
+
+        [Required]
+        public string AirlineId { get; set; } 
     }
 }

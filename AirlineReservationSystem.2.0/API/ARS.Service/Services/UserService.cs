@@ -64,6 +64,38 @@ namespace ARS.Service.Services
 
         }
 
+        public async Task<Guid> CreateAirlineAdminAsync(CreateAirlineAdminDTO createDTO)
+        {
+            try
+            {
+                var user = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Email = createDTO.Email,
+                    FirstName = createDTO.RepresentativesFirstName,
+                    LastName = createDTO.RepresentativesLastName,
+                    UserName = createDTO.UserName
+                };
+
+                var result = await userManager.CreateAsync(user, createDTO.Password);
+
+                if (!result.Succeeded)
+                {
+                    throw new Exception(string.Join(Environment.NewLine, result.Errors.Select(x => x.Description)));
+
+                }
+
+                await userManager.AddToRoleAsync(user, RoleConstants.AirlineAdmin);
+
+
+                return user.Id;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         //TODO: clear if not used
         public async Task<bool> CheckIfUserExists(string userId)
