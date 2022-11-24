@@ -5,8 +5,8 @@ using ARS.Api.ServiceExtensions;
 using ARS.Common.Configurations;
 using ARS.Common.Entities;
 using ARS.Persistance.Context;
-using ARS.Persistance.Seed;
 
+using ARS.Persistance.Seed;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -24,6 +24,11 @@ builder.Services.Configure<JwtTokenConfigurationModel>(jwtConfig);
 builder.Services.AddIdentityCore<User>(options =>
 {
     options.User.RequireUniqueEmail = true;
+
+    options.Lockout.AllowedForNewUsers = true;
+    options.Lockout.MaxFailedAccessAttempts = 3;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
+
 })
                 .AddRoles<Role>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -92,7 +97,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var DbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    DbInitializer.SeedInitialData(DbContext).Wait();
+    await DbInitializer.SeedInitialData(DbContext, scope);
 }
 
 

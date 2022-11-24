@@ -2,13 +2,18 @@
 using ARS.Common.Entities;
 using ARS.Persistance.Context;
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+
 using Newtonsoft.Json;
 
 namespace ARS.Persistance.Seed
 {
-    public static class DbInitializer
+    public class DbInitializer
     {
-        public static async Task SeedInitialData(ApplicationDbContext context)
+
+        public static async Task SeedInitialData(
+            ApplicationDbContext context, IServiceScope scope)
         {
             if (!context.Destinations.Any())
             {
@@ -19,6 +24,8 @@ namespace ARS.Persistance.Seed
             {
                 await SeedRoles(context);
             }
+
+            await SeedGlobalAdmin(scope);
 
         }
 
@@ -77,6 +84,31 @@ namespace ARS.Persistance.Seed
             }
 
         }
+        private static async Task SeedGlobalAdmin(IServiceScope scope)
+        {
+            try
+            {
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+                var GlobalAdmin = new User
+                {
+                    Email = "roan97dev@gmail.com",
+                    UserName = "roan97",
+                    FirstName = "Roslava",
+                    LastName = "Angelova"
+                };
+
+                await userManager.CreateAsync(GlobalAdmin, "P@ssw1rd");
+                await userManager.AddToRoleAsync(GlobalAdmin, RoleConstants.GlobalAdmin);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 
 }
