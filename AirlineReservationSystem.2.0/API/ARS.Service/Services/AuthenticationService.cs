@@ -44,7 +44,7 @@ namespace ARS.Service.Services
 
                 if (!user.IsActive)
                 {
-                    throw new Exception(string.Join(ErrorMessageConstants.UserNotFound, nameof(loginDTO.Email), loginDTO.Email));
+                    throw new Exception(string.Format(ErrorMessageConstants.UserNotFound, nameof(loginDTO.Email), loginDTO.Email));
                 }
 
                 if(user.LockoutEnd > DateTime.UtcNow)

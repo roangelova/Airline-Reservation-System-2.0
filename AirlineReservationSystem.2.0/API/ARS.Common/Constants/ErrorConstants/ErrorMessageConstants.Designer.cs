@@ -70,7 +70,7 @@ namespace ARS.Common.Constants.ErrorConstants {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No {0} with Id {1} found!.
+        ///   Looks up a localized string similar to No {0} with Id {1} was found!.
         /// </summary>
         public static string Object_is_null {
             get {

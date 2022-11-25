@@ -122,7 +122,7 @@
     <comment>Use when there is no user with this email or the password is icorrect.</comment>
   </data>
   <data name="Object is null" xml:space="preserve">
-    <value>No {0} with Id {1} found!</value>
+    <value>No {0} with Id {1} was found!</value>
   </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>User with {0} {1} was not found!</value>

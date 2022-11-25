@@ -1,6 +1,13 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using ARS.Common.Constants.ErrorConstants;
+using ARS.Common.Constants.Roles;
 using ARS.Common.DTOs.Airline;
+using ARS.Common.DTOs.User;
 using ARS.Common.Entities;
 using ARS.Common.Enums;
 using ARS.Persistance.UnitOfWork;
@@ -31,7 +38,8 @@ namespace ARS.Service.Services
 
                 if (airline is null)
                 {
-                    throw new Exception(string.Join(ErrorMessageConstants.Object_is_null, nameof(Airline), airlineId));
+                    throw new Exception(string.Format(ErrorMessageConstants.Object_is_null, nameof(Airline), airlineId));
+
                 }
 
                 airline.AdminId = adminId;
