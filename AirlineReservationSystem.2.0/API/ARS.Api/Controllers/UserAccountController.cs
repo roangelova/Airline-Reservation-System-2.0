@@ -10,7 +10,7 @@ namespace ARS.Api.Controllers
 {
     [Route(RoutingConstants.UserRoute)]
     [ApiController]
-    public class UserController : BaseApiController
+    public class UserController : ControllerBase
     {
         private readonly IUserService userService;
 

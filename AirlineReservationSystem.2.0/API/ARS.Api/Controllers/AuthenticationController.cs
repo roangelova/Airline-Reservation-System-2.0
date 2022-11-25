@@ -13,7 +13,7 @@ namespace ARS.Api.Controllers
 {
     [Route(RoutingConstants.AuthenticationRoute)]
     [ApiController]
-    public class AuthenticationController : BaseApiController
+    public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService authenticationService;
         private readonly IMemoryCache authenicationCache;

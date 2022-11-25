@@ -32,7 +32,6 @@ namespace ARS.Common.DTOs.User
         [Required]
         public string Gender { get; set; }
 
-
         public string Password { get; set; }
     }
 }

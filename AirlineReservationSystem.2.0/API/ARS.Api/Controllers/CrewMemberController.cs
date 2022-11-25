@@ -10,7 +10,7 @@ namespace ARS.Api.Controllers
 
     [Route(RoutingConstants.CrewMemberRoute)]
     [ApiController]
-    public class CrewMemberController : BaseApiController
+    public class CrewMemberController : ControllerBase
     {
         private readonly ICrewMemberService crewMemberService;
 
