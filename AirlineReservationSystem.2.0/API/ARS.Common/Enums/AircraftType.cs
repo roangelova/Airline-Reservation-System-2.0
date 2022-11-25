@@ -10,6 +10,7 @@ namespace ARS.Common.Enums
     {
         Airbus, 
         Boeing,
-        Embraer
+        Embraer,
+        Bombardier
     }
 }

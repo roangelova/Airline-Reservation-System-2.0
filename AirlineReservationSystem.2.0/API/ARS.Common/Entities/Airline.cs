@@ -1,4 +1,5 @@
-﻿using ARS.Common.TrackDataChanges;
+﻿using ARS.Common.Enums;
+using ARS.Common.TrackDataChanges;
 
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace ARS.Common.Entities
 
         [MaxLength(AirlineMaxLogoImageLength)]
         public string? AirlineLogo { get; set; }
+
+        public AirlineType AirlineType { get;set; }
 
         [ForeignKey(nameof(User))]
         public Guid? AdminId { get; set; }
