@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ARS.Api.Controllers.BaseControllers;
 using ARS.Common.DTOs.User;
 using ARS.Service.Contracts;
 using Microsoft.AspNetCore.Authorization;

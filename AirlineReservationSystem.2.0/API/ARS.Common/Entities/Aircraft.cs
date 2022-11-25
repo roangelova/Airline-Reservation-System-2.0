@@ -26,7 +26,7 @@ namespace ARS.Common.Entities
 
         [Required]
         [MaxLength(AircraftImageUrlMaxLength)]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         [Required]
         public int Capacity { get; set; }

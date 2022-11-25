@@ -1,5 +1,4 @@
 ﻿
-using ARS.Api.Controllers.BaseControllers;
 using ARS.Common.Constants.API;
 using ARS.Common.DTOs.User;
 using ARS.Common.Entities.NotMapped;
