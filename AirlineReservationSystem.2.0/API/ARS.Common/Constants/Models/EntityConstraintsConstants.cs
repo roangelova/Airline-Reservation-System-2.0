@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.Constants.models
 {
-    public class EntityConstraintsConstants
+    public static class EntityConstraintsConstants
     {
         public const int AircraftModelMaxLength = 50;
         public const int AircraftImageUrlMaxLength = 2000;

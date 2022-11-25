@@ -15,14 +15,18 @@ namespace ARS.Persistance.UnitOfWork
         public IAirlineRepository Airlines { get; set; }
         public ICrewMemberRepository CrewMembers { get; set; }
 
+        public IAircraftRepository Aircraft { get; set; }
+
         public UnitOfWork(
             ApplicationDbContext context,
             IAirlineRepository airlines,
-            ICrewMemberRepository crewMembers)
+            ICrewMemberRepository crewMembers,
+            IAircraftRepository aircrafts)
         {
             this.context = context;
             Airlines = airlines;
             CrewMembers = crewMembers;
+            Aircraft = aircrafts;
         }
 
         public async Task<int> CompleteAsync()

@@ -24,7 +24,7 @@ namespace ARS.Common.Entities
         [MaxLength(CrewMemberMaxNameLength)]
         public string Name { get; set; }
 
-        public AircraftType TypeRating { get; set; }
+        public AircraftManufacturer TypeRating { get; set; }
 
         [MaxLength(CrewMemberMaxAvatarUrl)]
         //TODO: USE A DIFFERENT KIND OF DB TO STORE UPLOADED AVATARS; alt - blob storage 

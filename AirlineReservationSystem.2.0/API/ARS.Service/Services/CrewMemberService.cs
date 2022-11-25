@@ -25,7 +25,7 @@ namespace ARS.Service.Services
                 {
                     Name = addCrewMemberDTO.Name,
                     CrewType = Enum.Parse<CrewType>(addCrewMemberDTO.CrewType),
-                    TypeRating = Enum.Parse<AircraftType>(addCrewMemberDTO.TypeRating),
+                    TypeRating = Enum.Parse<AircraftManufacturer>(addCrewMemberDTO.TypeRating),
                     AvatarUrl = addCrewMemberDTO?.AvatarUrl,
                     AirlineId = Guid.Parse(addCrewMemberDTO.AirlineId)
                 };

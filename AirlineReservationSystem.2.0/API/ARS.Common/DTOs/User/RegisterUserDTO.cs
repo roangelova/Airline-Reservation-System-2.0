@@ -13,6 +13,7 @@ namespace ARS.Common.DTOs.User
     public class RegisterUserDTO
     {
         [Required]
+        [MaxLength(UserNameMaxLength)]
         public string UserName { get; set; }
 
         [Required]

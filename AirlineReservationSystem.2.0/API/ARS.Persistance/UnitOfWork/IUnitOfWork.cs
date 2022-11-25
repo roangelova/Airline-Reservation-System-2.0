@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using ARS.Persistance.Repositories.Contracts;
 
 namespace ARS.Persistance.UnitOfWork
@@ -13,6 +8,9 @@ namespace ARS.Persistance.UnitOfWork
         IAirlineRepository Airlines { get; set; }
 
         ICrewMemberRepository CrewMembers { get; set; }
+
+        IAircraftRepository Aircraft { get; set; }
+
         public Task<int> CompleteAsync();
 
     }
