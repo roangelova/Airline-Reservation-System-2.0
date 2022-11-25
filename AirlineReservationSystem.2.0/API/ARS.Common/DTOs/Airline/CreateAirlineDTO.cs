@@ -17,6 +17,10 @@ namespace ARS.Common.DTOs.Airline
         public string? LogoUrl { get; set; }
 
         public Guid? AdminId { get; set; }
+
+
+        [Required]
+        public string AirlineType { get; set; }
     }
 
 }

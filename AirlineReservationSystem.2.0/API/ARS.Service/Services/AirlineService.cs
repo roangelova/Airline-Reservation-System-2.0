@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using ARS.Common.Constants.ErrorConstants;
-using ARS.Common.Constants.Roles;
 using ARS.Common.DTOs.Airline;
-using ARS.Common.DTOs.User;
 using ARS.Common.Entities;
+using ARS.Common.Enums;
 using ARS.Persistance.UnitOfWork;
 using ARS.Service.Contracts;
 
@@ -59,7 +53,8 @@ namespace ARS.Service.Services
                     AirlineName = createDTO.Name,
                     Description = createDTO?.Description,
                     AirlineLogo = createDTO?.LogoUrl,
-                    AdminId = createDTO?.AdminId ?? null
+                    AdminId = createDTO?.AdminId ?? null,
+                    AirlineType = Enum.Parse<AirlineType>(createDTO.AirlineType)
                 };
 
                 await unitOfWork.Airlines.AddAsync(airline);

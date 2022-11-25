@@ -13,5 +13,7 @@ namespace ARS.Common.Constants.API
         public const string AuthenticationRoute = "Authentiction";
 
         public const string AirlineRoute = "Airline";
+
+        public const string CrewMemberRoute = "CrewMembers";
     }
 }

@@ -21,7 +21,6 @@ namespace ARS.Common.Entities
         [MaxLength(AirlineMaxNameLength)]
         public string AirlineName { get; set; }
 
-
         [MaxLength(AirlineMaxDescriptionLength)]
         public string? Description { get; set; }
 

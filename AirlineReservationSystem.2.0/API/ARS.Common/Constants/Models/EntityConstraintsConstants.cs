@@ -12,7 +12,7 @@ namespace ARS.Common.Constants.models
         public const int AircraftImageUrlMaxLength = 2000;
 
         public const int AirlineMaxNameLength = 50;
-        public const int AirlineMaxDescriptionLength = 50;
+        public const int AirlineMaxDescriptionLength = 500;
         public const int AirlineMaxLogoImageLength = 2000;
 
         public const int CrewMemberMaxNameLength = 80;

@@ -18,11 +18,13 @@ namespace ARS.Api.ServiceExtensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IAirlineRepository, AirlineRepository>();
+            services.AddScoped<ICrewMemberRepository, CrewMembeRepository>();
 
             services.AddScoped<IAirlineService, AirlineService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ICrewMemberService, CrewMemberService>();
 
             return services;
         }

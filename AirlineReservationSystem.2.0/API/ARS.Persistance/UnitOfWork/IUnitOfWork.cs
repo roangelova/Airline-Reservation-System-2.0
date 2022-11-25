@@ -11,6 +11,8 @@ namespace ARS.Persistance.UnitOfWork
     public interface IUnitOfWork
     {
         IAirlineRepository Airlines { get; set; }
+
+        ICrewMemberRepository CrewMembers { get; set; }
         public Task<int> CompleteAsync();
 
     }
