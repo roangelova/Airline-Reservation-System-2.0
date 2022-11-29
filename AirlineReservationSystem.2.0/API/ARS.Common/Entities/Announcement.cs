@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ARS.Common.TrackDataChanges;
+
 namespace ARS.Common.Entities
 {
-    public class Announcement
+    public class Announcement : Trackable
     {
         public Guid Id { get; set; }
 

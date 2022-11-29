@@ -15,9 +15,7 @@ namespace ARS.Persistance.DbConfigurations
     {
         public void Configure(EntityTypeBuilder<Booking> builder)
         {
-            // builder.HasOne(x => x.FlightsBookings)
-            //     .WithMany()
-            //     .OnDelete(DeleteBehavior.Restrict);
+            builder.HasQueryFilter(x => x.IsActive == true);
         }
     }
 }

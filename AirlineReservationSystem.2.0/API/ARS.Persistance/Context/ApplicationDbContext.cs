@@ -65,6 +65,9 @@ namespace ARS.Persistance.Context
                new { x.FlightId, x.BookingId });
 
             builder.ApplyConfiguration(new FlightEntityConfiguration());
+            builder.ApplyConfiguration(new BookingEntityConfiguration());
+
+            ApplyQueryFilters(builder);
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
@@ -110,6 +113,19 @@ namespace ARS.Persistance.Context
             var userId = identity?.Claims.FirstOrDefault(x =>
             x.Type == ClaimTypes.NameIdentifier)?.Value;
             return userId != null ? Guid.Parse(userId) : Guid.Empty;
+        }
+
+        private static void ApplyQueryFilters(ModelBuilder builder)
+        {
+            builder.Entity<Aircraft>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<CrewMember>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Airline>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Announcement>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Destination>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Baggage>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<User>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Role>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Passenger>().HasQueryFilter(x => x.IsActive == true);
         }
     }
 }

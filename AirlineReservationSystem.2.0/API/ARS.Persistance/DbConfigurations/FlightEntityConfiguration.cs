@@ -21,9 +21,7 @@ namespace ARS.Persistance.DbConfigurations
                 .WithMany(x => x.Flights)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // builder.HasOne(x => x.FlightsBookings)
-            //     .WithMany()
-            //     .OnDelete(DeleteBehavior.Restrict);
+            builder.HasQueryFilter(x => x.IsActive == true);
         }
     }
 }
