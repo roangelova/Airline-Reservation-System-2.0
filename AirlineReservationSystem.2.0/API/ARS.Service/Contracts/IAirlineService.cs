@@ -7,6 +7,7 @@ namespace ARS.Service.Contracts
     public interface IAirlineService
     {
         //GET
+        public Task<List<ListAirlineDTO>> GetAirlines ();
 
         //POST
         public Task CreateAirlineAsync(CreateAirlineDTO createDTO);

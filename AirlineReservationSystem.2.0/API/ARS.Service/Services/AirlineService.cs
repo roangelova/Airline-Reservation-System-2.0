@@ -76,5 +76,18 @@ namespace ARS.Service.Services
             }
 
         }
+
+        public async Task<List<ListAirlineDTO>> GetAirlines()
+        {
+            var aircraft = await unitOfWork.Airlines.GetAllAsync(null, null, "");
+
+
+            return aircraft.Select(x => new ListAirlineDTO
+            {
+                Name = x.AirlineName,
+                Description = x.Description,
+                Id = x.AirlineId.ToString()
+            }).ToList();
+        }
     }
 }

@@ -38,9 +38,15 @@ namespace ARS.Api.Controllers
         {
             var adminId = await userService.CreateAirlineAdminAsync(createDTO);
 
-            await airlineService.AssignAdminToAirline(adminId, Guid.Parse(createDTO.AirlineId));
+           // await airlineService.AssignAdminToAirline(adminId, Guid.Parse(createDTO.AirlineId));
 
             return Ok();
+        }
+
+        [HttpGet(nameof(GetAirlines))]
+        public async Task<List<ListAirlineDTO>> GetAirlines()
+        {
+            return await airlineService.GetAirlines();
         }
     }
 }

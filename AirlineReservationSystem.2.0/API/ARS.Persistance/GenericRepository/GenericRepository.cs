@@ -35,7 +35,9 @@ namespace ARS.Persistance.GenericRepository
         public virtual async Task DeleteByIdAsync(object id)
         {
             //TODO: 
-
+            var entity = await dbSet.FindAsync(id);
+             dbSet.Remove(entity);
+            return;
         }
 
         public virtual void DeleteEntity(TEntity entityToDelete)
@@ -64,6 +66,7 @@ namespace ARS.Persistance.GenericRepository
                 (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(includeProperty);
+               
             }
 
             if (orderBy != null)
