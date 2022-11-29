@@ -26,5 +26,11 @@ namespace ARS.Common.Constants.models
         public const int PassengerMaxDocumentNumberLength = 30;
 
         public const int UserNameMaxLength = 50;
+
+        public const int CityMaxLength = 30;
+        public const int PostalCodeMaxLength = 30;
+        public const int StreetMaxLength = 30;
+        public const int RegionMaxLength = 30;
+        public const int DetailsMaxLength = 30;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.Enums
 {
-    public enum Status
+    public enum BookingStatus
     {
         Confirmed,
         Canceled

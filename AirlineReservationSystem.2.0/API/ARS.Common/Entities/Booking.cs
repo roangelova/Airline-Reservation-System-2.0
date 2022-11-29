@@ -18,7 +18,7 @@ namespace ARS.Common.Entities
         public Guid BookingNumber { get; set; } = Guid.NewGuid();
 
         [Required]
-        public Status BookingStatus { get; set; }
+        public BookingStatus BookingStatus { get; set; }
 
         public decimal TotalPrice { get; set; }
 
