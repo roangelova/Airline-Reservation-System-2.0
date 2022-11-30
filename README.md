@@ -5,7 +5,7 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 
 **Planned** functionalities: 
 
-## For airlines:
+### For airlines:
 - Register an airline
 - Get sales and expenses statistics/reports
 - Manage flights, crew and aircraft
@@ -15,7 +15,7 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Handle customer support cases
 - Issue announcements for customers
 
-## For users:
+### For users:
 - Search and compare flights (regardless of the airline) based on
   * continent
   * country
@@ -27,5 +27,5 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Generate and print boarding pass
 - Contact customer support (email or chat)
 
-##Technologies: 
+### Technologies: 
 .NET 6, React 18, Redux, MSSQL
