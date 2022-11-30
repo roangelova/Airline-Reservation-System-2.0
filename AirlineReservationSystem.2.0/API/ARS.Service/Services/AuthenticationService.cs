@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using ARS.Common.Constants.ErrorConstants;
 using ARS.Common.DTOs.User;
 using ARS.Common.Entities;
