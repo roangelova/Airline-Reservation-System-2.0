@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ARS.Common.Enums
 {
-    internal class FlightStatus
+    public enum FlightStatus
     {
+        Planned,
+        Delayed,
+        Canceled,
+        Completed,
+        Departed
     }
 }

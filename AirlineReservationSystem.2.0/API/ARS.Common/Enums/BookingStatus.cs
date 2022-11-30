@@ -8,7 +8,10 @@ namespace ARS.Common.Enums
 {
     public enum BookingStatus
     {
+        PaymentPending, 
+        PaymentFailed,
         Confirmed,
-        Canceled
+        Canceled,
+        Refunded
     }
 }

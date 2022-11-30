@@ -46,5 +46,7 @@ namespace ARS.Common.Entities
 
         public User User { get; set; }
 
+        public bool IsPrimary { get; set; } = true;
+
     }
 }

@@ -47,6 +47,8 @@ namespace ARS.Persistance.Context
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Address> Addresses { get; set; }
+
         public DbSet<Announcement> Announcements { get; set; }
 
 
@@ -117,15 +119,16 @@ namespace ARS.Persistance.Context
 
         private static void ApplyQueryFilters(ModelBuilder builder)
         {
-            builder.Entity<Aircraft>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<CrewMember>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Airline>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Announcement>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Destination>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Baggage>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<User>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Role>().HasQueryFilter(x => x.IsActive == true);
-            builder.Entity<Passenger>().HasQueryFilter(x => x.IsActive == true);
+            builder.Entity<Aircraft>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<CrewMember>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Airline>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Announcement>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Destination>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Baggage>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<User>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Role>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Passenger>().HasQueryFilter(x => x.IsActive );
+            builder.Entity<Address>().HasQueryFilter(x => x.IsActive );
         }
     }
 }

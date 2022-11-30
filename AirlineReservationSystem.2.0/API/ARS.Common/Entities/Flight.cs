@@ -32,7 +32,7 @@ namespace ARS.Common.Entities
         public DateTime Duration { get; set; }
 
         [Required]
-        public BookingStatus FlightStatus { get; set; }
+        public FlightStatus FlightStatus { get; set; }
 
         [Required]
         public Aircraft Aircraft { get; set; }

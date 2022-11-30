@@ -18,7 +18,7 @@ namespace ARS.Common.Entities
         public Guid BookingNumber { get; set; } = Guid.NewGuid();
 
         [Required]
-        public BookingStatus BookingStatus { get; set; }
+        public BookingStatus BookingStatus { get; set; } 
 
         public decimal TotalPrice { get; set; }
 
@@ -27,6 +27,8 @@ namespace ARS.Common.Entities
         public Guid UserId { get; set; }
 
         public User User { get; set; }
+
+        public int NumberOfTickets { get; set; }
 
         public ICollection<FlightsBookings> FlightsBookings { get; set; } = new List<FlightsBookings>();
 
