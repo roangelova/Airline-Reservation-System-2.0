@@ -35,5 +35,7 @@ namespace ARS.Common.Entities
         [Required]
         [ForeignKey(nameof(Airline))]
         public Guid AirlineId { get; set; }
+
+        public double Salary { get; set; }
     }
 }

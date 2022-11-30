@@ -7,6 +7,7 @@ using ARS.Common.Entities;
 using ARS.Persistance.Context;
 
 using ARS.Persistance.Seed;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -96,8 +97,17 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var DbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await DbInitializer.SeedInitialData(DbContext, scope);
+    try
+    {
+        var DbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        DbContext.Database.Migrate();
+        await DbInitializer.SeedInitialData(DbContext, scope);
+    }
+    catch (Exception)
+    {
+        throw;
+    }
+
 }
 
 

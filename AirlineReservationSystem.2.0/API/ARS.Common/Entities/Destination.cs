@@ -27,5 +27,8 @@ namespace ARS.Common.Entities
         [Required]
         [MaxLength(DestinationNameMaxLength)]
         public string Name { get; set; }
+
+        [Required]
+        public double HandlingFeePerPerson { get; set; }
     }
 }

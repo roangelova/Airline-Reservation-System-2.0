@@ -35,5 +35,11 @@ namespace ARS.Common.Entities
 
         [ForeignKey(nameof(Airline))]
         public Guid AirlineId { get; set; }
+
+        [Required]
+        public double PurchasePrice { get; set; }
+
+        [Required]
+        public double MonthlyOperationalCost { get; set; }
     }
 }
