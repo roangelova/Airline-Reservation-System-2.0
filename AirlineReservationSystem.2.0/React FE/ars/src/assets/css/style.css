@@ -16,47 +16,98 @@ body {
   font-weight: 300;
   line-height: 1.6; }
 
-.admin {
+.btn {
+  display: block;
+  text-decoration: none;
+  color: #343a40;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #343a40;
+  text-align: center; }
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem; }
+
+input {
+  display: block;
+  margin-bottom: 0.5rem; }
+
+span {
+  display: block;
+  font-size: 1.6rem; }
+
+a {
+  text-decoration: none;
+  color: #343a40;
+  cursor: pointer; }
+
+.heading-primary {
+  font-size: 4.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: #343a40; }
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6; }
+
+.login {
+  background-color: #632445;
   width: 100vw;
   height: 100vh;
-  padding: 4rem 3rem;
-  margin: 0 auto;
-  display: flex; }
-  .adminNav-block {
-    height: 100%;
-    width: 20%;
-    margin: 0 3rem;
-    background-color: #fbf7f4;
-    border-radius: 1rem;
-    padding: 5rem 5rem; }
-  .adminNav-block img {
-    height: 12rem;
-    margin-bottom: 5rem;
-    mix-blend-mode: multiply; }
-  .adminNav-user {
+  position: relative; }
+  .login--wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 90vh;
+    width: 120rem;
     display: flex;
-    margin-bottom: 4em; }
-  .adminNav-user img {
-    height: 6rem;
-    border-radius: 50%;
-    padding-right: 1rem; }
-  .adminNav-userData img {
-    height: 6rem;
-    border-radius: 50%; }
-  .adminNav-userData span {
-    font-size: 2.5rem;
-    display: block; }
-    .adminNav-userData span:last-child {
-      font-size: 2rem; }
-  .adminNav-list {
-    list-style: none; }
-  .adminNav-list--item {
-    font-size: 3.5rem;
-    letter-spacing: 1px; }
+    flex-direction: row; }
+  .login__logobox img {
+    width: 8rem;
+    mix-blend-mode: multiply;
+    margin: 1.5rem; }
+  .login__content {
+    width: 50%;
+    height: 90%;
+    background-color: #fff; }
+  .login__image {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to right, rgba(99, 36, 69, 0.6), rgba(52, 58, 64, 0.6)), url("../images/homepage/hero-2.jpg");
+    height: 90%;
+    width: 50%; }
+  .login__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .login__btn {
+    background-color: rgba(99, 36, 69, 0.6);
+    padding: 1.5rem;
+    border-radius: 5%; }
 
-.adminMain {
-  height: 100%;
-  background-color: #b8c5c5;
-  width: 100%;
-  display: block;
-  border-radius: 1rem; }
+.margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+
+.margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.margin-top-big {
+  margin-bottom: 8rem; }
+
+.margin-top-huge {
+  margin-bottom: 10rem; }
