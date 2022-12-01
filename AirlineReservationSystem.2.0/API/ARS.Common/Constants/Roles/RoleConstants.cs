@@ -13,5 +13,11 @@ namespace ARS.Common.Constants.Roles
         public const string AirlineAdmin = "Airline Admin";
 
         public const string Customer = "Customer";
+
+        public const string FlightScheduler = "Flight Scheduler";
+
+        public const string CrewScheduler = "Crew Scheduler";
+
+        public const string FleetManager = "Fleet Manager";
     }
 }
