@@ -14,7 +14,7 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Real-time crew management (report crewmember as sick and find replacement for upcoming flights)
 - Handle customer support cases
 - Issue announcements for customers
-- Take card payments
+- Take card payments in compliance with the PCIDSS
 
 ### For users:
 - Search and compare flights (regardless of the airline) based on
@@ -30,4 +30,5 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Pay with credit card
 
 ### Technologies: 
-.NET 6, React 18, Redux, MSSQL
+**Backend**: .NET 6, MSSQL
+**Frontend**: React 18 with TypeScript, Redux, HTML, CSS, SASS
