@@ -14,6 +14,7 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Real-time crew management (report crewmember as sick and find replacement for upcoming flights)
 - Handle customer support cases
 - Issue announcements for customers
+- Take card payments
 
 ### For users:
 - Search and compare flights (regardless of the airline) based on
@@ -26,6 +27,7 @@ Holds a from scratch rewritten and updated version of the Airline-Reservtion-Sys
 - Online flight chech-in
 - Generate and print boarding pass
 - Contact customer support (email or chat)
+- Pay with credit card
 
 ### Technologies: 
 .NET 6, React 18, Redux, MSSQL
