@@ -61,6 +61,33 @@ namespace ARS.Common.Constants.ErrorConstants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This {0} does not belong to this airline!.
+        /// </summary>
+        public static string Aircraft_or_crewmember_does_not_belong_to_Airline_ {
+            get {
+                return ResourceManager.GetString("Aircraft or crewmember does not belong to Airline;", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least {0} flights attendants are required for this flight!.
+        /// </summary>
+        public static string Count_Of_Flight_Attendants_not_enough {
+            get {
+                return ResourceManager.GetString("Count Of Flight Attendants not enough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid flight data!.
+        /// </summary>
+        public static string Invalid_flight_data_ {
+            get {
+                return ResourceManager.GetString("Invalid flight data!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unsuccessful login! Please check the provided data and try again..
         /// </summary>
         public static string LoginFailed {
@@ -75,6 +102,15 @@ namespace ARS.Common.Constants.ErrorConstants {
         public static string Object_is_null {
             get {
                 return ResourceManager.GetString("Object is null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pilot with Id {0} is not type rated to fly this aircraft!.
+        /// </summary>
+        public static string Type_rating_missmatch_ {
+            get {
+                return ResourceManager.GetString("Type rating missmatch!", resourceCulture);
             }
         }
         

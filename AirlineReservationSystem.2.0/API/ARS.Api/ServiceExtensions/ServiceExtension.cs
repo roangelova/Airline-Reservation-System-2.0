@@ -27,6 +27,7 @@ namespace ARS.Api.ServiceExtensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<ICrewMemberService, CrewMemberService>();
             services.AddScoped<IAircraftService, AircraftService>();
+            services.AddScoped<IFlightService, FlightService>();
 
             return services;
         }

@@ -29,10 +29,13 @@ namespace ARS.Common.Entities
         public DateTime TakeOffTime { get; set; }
 
         [Required]
-        public DateTime Duration { get; set; }
+        public TimeOnly Duration { get; set; }
 
         [Required]
         public FlightStatus FlightStatus { get; set; }
+
+        public int AvailableCapacity { get; set; }
+
 
         [Required]
         public Aircraft Aircraft { get; set; }

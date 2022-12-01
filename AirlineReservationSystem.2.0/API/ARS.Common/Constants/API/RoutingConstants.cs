@@ -17,5 +17,7 @@ namespace ARS.Common.Constants.API
         public const string CrewMemberRoute = "CrewMembers";
 
         public const string AircraftRoute = "Aircraft";
+
+        public const string FlightRoute = "Flight";
     }
 }
