@@ -21,6 +21,10 @@ namespace ARS.Common.Entities
         [MaxLength(AirlineMaxNameLength)]
         public string AirlineName { get; set; }
 
+        [Required]
+        [MaxLength(IATA_AirlineCodeMaxLength)]
+        public string IATA { get; set; }
+
         [MaxLength(AirlineMaxDescriptionLength)]
         public string? Description { get; set; }
 

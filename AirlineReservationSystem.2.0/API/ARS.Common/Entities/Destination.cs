@@ -21,7 +21,7 @@ namespace ARS.Common.Entities
         public Country Country { get; set; }
 
         [Required]
-        [MaxLength(IATACodeMaxLength)]
+        [MaxLength(IATA_AirportCodeMaxLength)]
         public string IATA { get; set; }
 
         [Required]

@@ -18,7 +18,8 @@ namespace ARS.Common.Constants.models
         public const int CrewMemberMaxNameLength = 80;
         public const int CrewMemberMaxAvatarUrl = 2000;
 
-        public const int IATACodeMaxLength = 3;
+        public const int IATA_AirlineCodeMaxLength = 2;
+        public const int IATA_AirportCodeMaxLength = 3;
         public const int DestinationNameMaxLength = 50;
 
         public const int PassengerMaxNameLength = 60;
