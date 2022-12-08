@@ -15,6 +15,10 @@ namespace ARS.Common.DTOs.Airline
         [MaxLength(AirlineMaxNameLength)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(IATA_AirlineCodeMaxLength)]
+        public string IATA { get; set; }
+
 
         [MaxLength(AirlineMaxDescriptionLength)]
         public string Description { get; set; }

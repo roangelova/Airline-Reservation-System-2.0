@@ -12,6 +12,8 @@ namespace ARS.Common.DTOs.Airline
 
         public string Name { get; set; }
 
+        public string IATA { get; set; }
+
         public string Description { get; set; }
     }
 }

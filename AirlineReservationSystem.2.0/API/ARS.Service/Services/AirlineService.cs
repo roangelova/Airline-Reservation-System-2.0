@@ -52,6 +52,7 @@ namespace ARS.Service.Services
                 var airline = new Airline
                 {
                     AirlineName = createDTO.Name,
+                    IATA = createDTO.IATA,
                     Description = createDTO?.Description,
                     AirlineLogo = createDTO?.LogoUrl,
                     AdminId = createDTO?.AdminId ?? null,
@@ -80,7 +81,8 @@ namespace ARS.Service.Services
                 Name = x.AirlineName,
                 Description = x.Description,
                 Id = x.AirlineId.ToString()
-            }).ToList();
+            }).
+            ToList();
         }
     }
 }
