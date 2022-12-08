@@ -10,6 +10,7 @@ namespace ARS.Common.Entities
     {
         public Guid FlightId { get; set; } = Guid.NewGuid();
 
+
         public bool IsAnOffer { get; set; }
 
         [ForeignKey(nameof(Origin))]
@@ -29,7 +30,8 @@ namespace ARS.Common.Entities
         public DateTime TakeOffTime { get; set; }
 
         [Required]
-        public TimeOnly Duration { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime LandingTime { get; set; }
 
         [Required]
         public FlightStatus FlightStatus { get; set; }

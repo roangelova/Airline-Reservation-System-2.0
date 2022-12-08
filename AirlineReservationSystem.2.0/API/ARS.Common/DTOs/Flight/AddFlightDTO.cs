@@ -18,7 +18,7 @@ namespace ARS.Common.DTOs.Flight
 
         public DateTime TakeOffTime { get; set; }
 
-        public TimeOnly Duration { get; set; }
+        public DateTime LandingTime { get; set; }
 
         public bool IsAnOffer { get; set; }
 
