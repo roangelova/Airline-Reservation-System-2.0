@@ -8,14 +8,14 @@ const LoginForm = () => {
                         <img src={require('../../assets/images/LOGO.png')} alt="App logo" />
                     </div>
                     <h1 className='heading-primary margin-bottom-small'>Welcome back</h1>
-                    <h3 className='heading-tertiary margin-bottom-small'>The faster yo fill this form up, the faster you can start booking</h3>
+                    <h3 className='heading-tertiary margin-bottom-small'>The faster you fill this form up, the faster you can start booking</h3>
                     <form className='login__form'>
                         <div className='login__form--email margin-bottom-small'>
-                            <label className='login__form-label' for="email">Email</label>
+                            <label className='login__form-label' htmlFor="email">Email</label>
                             <input className='login__form-input' id="email"></input>
                         </div>
                         <div className='login__form--password margin-bottom-medium'>
-                            <label className='label login__form-label' for="password">Password</label>
+                            <label className='label login__form-label' htmlFor="password">Password</label>
                             <input className='input login__form-input' id="password" type="password"></input>
                         </div>
                         <div className='login__form--controls margin-bottom-small'>
