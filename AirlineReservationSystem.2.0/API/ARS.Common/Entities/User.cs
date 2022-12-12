@@ -39,5 +39,7 @@ namespace ARS.Common.Entities
 
         public bool IsActive { get; set; } = true;
 
+        public string FullName => this.FirstName +  ' ' + this.FirstName;
+
     }
 }
