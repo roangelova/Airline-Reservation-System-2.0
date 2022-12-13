@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
 
@@ -61,7 +62,7 @@ const LoginForm: React.FC = () => {
                             <a className="btn login__btn" href="#">Sign in</a>
                         </div>
                         <div className='login--signUp'>
-                            <span>Don't have an account ? <a href="">Sign up now!</a></span>
+                          <Link to="/register">Don't have an account? Sign up now! </Link>  
                         </div>
                     </form>
                 </div>
