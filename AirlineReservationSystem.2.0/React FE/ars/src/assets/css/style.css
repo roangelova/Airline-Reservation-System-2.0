@@ -34,7 +34,11 @@ label {
 
 input {
   display: block;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  background-color: #d4d4d6;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px; }
 
 span {
   display: block;
@@ -59,7 +63,7 @@ a {
   line-height: 1.6; }
 
 .login {
-  background-color: #632445;
+  background-color: #d4d4d6;
   width: 100vw;
   height: 100vh;
   position: relative; }
@@ -84,7 +88,7 @@ a {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(to right, rgba(99, 36, 69, 0.6), rgba(52, 58, 64, 0.6)), url("../images/homepage/hero-2.jpg");
+    background-image: linear-gradient(to right, rgba(134, 142, 150, 0.4), rgba(52, 58, 64, 0.4)), url("../images/homepage/hero-2.jpg");
     height: 90%;
     width: 50%; }
   .login__form {
@@ -93,9 +97,14 @@ a {
     align-items: center;
     justify-content: center; }
   .login__btn {
-    background-color: rgba(99, 36, 69, 0.6);
-    padding: 1.5rem;
-    border-radius: 5%; }
+    background-color: rgba(134, 142, 150, 0.5);
+    padding: 0.8rem 2rem;
+    border-radius: 5%;
+    transition: all .4s; }
+    .login__btn:hover {
+      transform: scale(1.1); }
+  .login__signUp--text {
+    font-size: 1.8rem; }
 
 .margin-bottom-big {
   margin-bottom: 8rem; }

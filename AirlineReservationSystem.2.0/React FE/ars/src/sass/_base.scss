@@ -4,7 +4,8 @@ $color-primary-light: #632445;
 $color-primary-lightest: #a98698;
 
 $color-grey-dark: #343a40;
-$color-grey-light: #868e96;
+$color-grey: #868e96;
+$color-grey-light: #d4d4d6;
 
 *,
 *::after,
@@ -49,6 +50,10 @@ label {
 input {
   display: block;
   margin-bottom: 0.5rem;
+  background-color: $color-grey-light;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
 }
 
 span {

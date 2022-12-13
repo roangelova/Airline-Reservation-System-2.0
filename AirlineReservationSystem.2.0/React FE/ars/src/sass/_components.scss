@@ -1,5 +1,5 @@
 .login {
-  background-color: $color-primary-light;
+  background-color: $color-grey-light;
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -34,8 +34,8 @@
     background-position: center;
     background-image: linear-gradient(
         to right,
-        rgba($color-primary-light, 0.6),
-        rgba($color-grey-dark, 0.6)
+        rgba($color-grey, 0.4),
+        rgba($color-grey-dark, 0.4)
       ),
       url("../images/homepage/hero-2.jpg");
     height: 90%;
@@ -50,9 +50,22 @@
     &--controls {
     }
   }
+
   &__btn {
-    background-color: rgba($color-primary-light, 0.6);
-    padding: 1.5rem;
+    background-color: rgba($color-grey, 0.5);
+    padding: 0.8rem 2rem;
     border-radius: 5%;
+
+    transition: all .4s;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  &__signUp {
+    &--text {
+      font-size: 1.8rem;
+    }
   }
 }

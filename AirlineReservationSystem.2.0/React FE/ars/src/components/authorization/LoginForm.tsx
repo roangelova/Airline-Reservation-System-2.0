@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
 
-    const [data, setData] = useState({email : '', password: ''})
+    const [data, setData] = useState({ email: '', password: '' })
 
     const onLoginSubmitHandler = async (e: React.FormEvent) => {
         e.preventDefault();
-      
+        console.log(data)
     }
 
     const onChangeHandler = (e: any) => {
@@ -25,8 +25,8 @@ const LoginForm: React.FC = () => {
                         <img src={require('../../assets/images/LOGO.png')} alt="App logo" />
                     </div>
                     <h1 className='heading-primary margin-bottom-small'>Welcome back</h1>
-                    <h3 className='heading-tertiary margin-bottom-small'>The faster you fill this form up, the faster you can start booking</h3>
-                    <form className='login__form' onSubmit={onLoginSubmitHandler}>
+                    <h3 className='heading-tertiary margin-bottom-small'>Ready to book your next holiday? Sign in now!</h3>
+                    <form className='login__form'>
                         <div className='login__form--email margin-bottom-small'>
                             <label
                                 className='login__form-label'
@@ -59,10 +59,10 @@ const LoginForm: React.FC = () => {
                             </input>
                         </div>
                         <div className='login__form--controls margin-bottom-small'>
-                            <a className="btn login__btn" href="#">Sign in</a>
+                            <a  onClick={onLoginSubmitHandler} className="btn login__btn" href="#">Sign in</a>
                         </div>
-                        <div className='login--signUp'>
-                          <Link to="/register">Don't have an account? Sign up now! </Link>  
+                        <div className='login__signUp'>
+                            <Link className='login__signUp--text' to="/register">Don't have an account? Sign up <strong>now</strong> !</Link>
                         </div>
                     </form>
                 </div>
