@@ -21,6 +21,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 var jwtConfig = builder.Configuration.GetSection("Jwt");
 builder.Services.Configure<JwtTokenConfigurationModel>(jwtConfig);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "React",
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin()
+                             .AllowAnyHeader()
+                             .AllowAnyMethod();
+                      });
+
+});
 
 builder.Services.AddIdentityCore<User>(options =>
 {
@@ -123,6 +134,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("React");
 
 app.UseAuthentication();
 app.UseAuthorization();

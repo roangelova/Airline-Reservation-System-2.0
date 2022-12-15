@@ -1,16 +1,17 @@
 import axios, { AxiosResponse } from 'axios';
-import { store } from './store/configureStore';
+import store from './store/configureStore';
 
 axios.defaults.baseURL = process.env.REACT_APP_LocalHostUrl;
+console.log(axios.defaults.baseURL)
 
-axios.interceptors.request.use(config => {
-    const jwtToken = store.getState().account.user?.jwtToken;
-    //TODO: check if still valid 
-    if (jwtToken) {
-        config.headers!.Authorization = 'Bearer ' + jwtToken;
-    }
-    return config;
-})
+//axios.interceptors.request.use(config => {
+//   const jwtToken = store.getState().account.user?.jwtToken;
+//  // TODO: check if still valid 
+//   if (jwtToken) {
+//       config.headers!.Authorization = 'Bearer ' + jwtToken;
+//   }
+//   return config;
+//})
 
 const responseBody = (response: AxiosResponse) => response.data;
 

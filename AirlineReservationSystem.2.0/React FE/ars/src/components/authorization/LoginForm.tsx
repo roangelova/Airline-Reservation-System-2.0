@@ -15,7 +15,7 @@ function LoginForm() {
 
         dispatch(loginUser(data));
 
-        setData({ email: '', password: '' });
+       // setData({ email: '', password: '' });
     };
 
     const onChangeHandler = (e: any) => {

@@ -22,8 +22,9 @@ export const accountSlice = createSlice({
     builder.addCase(loginUser.rejected, (state) => {
       console.log('Failed to log in user');
     });
-    builder.addCase(loginUser.fulfilled, (state) => {
+    builder.addCase(loginUser.fulfilled, (state, action) => {
       console.log('Login successful');
+      state.user = action.payload;
     });
   })
 }
@@ -34,10 +35,11 @@ export const loginUser = createAsyncThunk('account/loginUser', async (data: {ema
     const result = await agent.Account.login(data.email, data.password);
     return result;
   } catch (error) {
+    console.log(error)
   return thunkAPI.rejectWithValue('Error');
   }
 })
 
-export default accountSlice.reducer;
+//export default accountSlice.reducer;
 
 export const {logout} = accountSlice.actions;
