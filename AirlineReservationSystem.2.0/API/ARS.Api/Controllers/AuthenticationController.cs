@@ -26,8 +26,8 @@ namespace ARS.Api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost(nameof(LoginAsync))]
-        public async Task<ActionResult> LoginAsync(LoginDTO loginDTO)
+        [HttpPost(nameof(Login))]
+        public async Task<ActionResult> Login(LoginDTO loginDTO)
         {
             (JwtTokenModel tokenModel, Guid userId) = await authenticationService.LoginAsync(loginDTO);
 
