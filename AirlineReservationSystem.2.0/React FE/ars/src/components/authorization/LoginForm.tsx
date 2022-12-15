@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loginUser } from 'store/slices/accountSlice';
+import { useAppDispatch } from 'store/configureStore';
 
-const LoginForm: React.FC = () => {
+function LoginForm() {
 
-    const [data, setData] = useState({ email: '', password: '' })
+    const dispatch = useAppDispatch()
+
+    const [data, setData] = useState<{email:string; password:string}>({email: '', password:  ''});
 
     const onLoginSubmitHandler = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(data)
-    }
+        console.log(data);
+
+        dispatch(loginUser(data));
+
+        setData({ email: '', password: '' });
+    };
 
     const onChangeHandler = (e: any) => {
         setData({
             ...data,
-            [e.target.name]: e.target.value
-        })
-    }
+            [e.target.name]: e.target.value.trim()
+        });
+    };
 
     return (
         <section className="login">
@@ -37,6 +45,8 @@ const LoginForm: React.FC = () => {
                                 className='login__form-input'
                                 id="email"
                                 name="email"
+                                placeholder='example@gmail.com'
+                                value={data.email}
                                 onChange={onChangeHandler}
                                 required
                             >
@@ -53,13 +63,15 @@ const LoginForm: React.FC = () => {
                                 id="password"
                                 type="password"
                                 name="password"
+                                placeholder='MyPassword'
+                                value={data.password}
                                 onChange={onChangeHandler}
                                 required
                             >
                             </input>
                         </div>
-                        <div className='login__form--controls margin-bottom-small'>
-                            <a  onClick={onLoginSubmitHandler} className="btn login__btn" href="#">Sign in</a>
+                        <div className='margin-bottom-small'>
+                            <a onClick={onLoginSubmitHandler} className="btn login__btn" href="#">Sign in</a>
                         </div>
                         <div className='login__signUp'>
                             <Link className='login__signUp--text' to="/register">Don't have an account? Sign up <strong>now</strong> !</Link>
@@ -70,7 +82,7 @@ const LoginForm: React.FC = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default LoginForm;
