@@ -1,8 +1,13 @@
 import axios, { AxiosResponse } from 'axios';
+import { ShorthandPropertyAssignment } from 'typescript';
 import store from './store/configureStore';
 
 axios.defaults.baseURL = process.env.REACT_APP_LocalHostUrl;
 console.log(axios.defaults.baseURL)
+
+//TODO - solve issue with cirucal dependency with the inteceptor
+//TODO -> api routes should be constants
+
 
 //axios.interceptors.request.use(config => {
 //   const jwtToken = store.getState().account.user?.jwtToken;
@@ -22,14 +27,23 @@ const requests = {
     delete: (url: string) => axios.delete(url).then(responseBody)
 }
 
- const Account = {
+const Account = {
     login: (email: string, password: string) =>
         requests.post('authenticate/login',
             {
                 email: email,
                 password: password
             }
-        )
+        ),
+    register: (email: string, username: string, firstName: string, lastName: string, nationality: string | null, password: string) =>
+        requests.post('user/registeruserasync', {
+            email: email,
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+            nationality: nationality,
+            password: password
+        })
 }
 
 const agent = {

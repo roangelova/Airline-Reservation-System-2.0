@@ -30,16 +30,35 @@ export const accountSlice = createSlice({
 }
 )
 
-export const loginUser = createAsyncThunk('account/loginUser', async (data: {email: string, password:string}, thunkAPI) => {
+export const loginUser = createAsyncThunk('account/loginUser', async (data: { email: string, password: string }, thunkAPI) => {
   try {
     const result = await agent.Account.login(data.email, data.password);
     return result;
   } catch (error) {
     console.log(error)
-  return thunkAPI.rejectWithValue('Error');
+    return thunkAPI.rejectWithValue('Error');
   }
 })
 
+export const registerUser = createAsyncThunk('account/registerUser', async (data:
+  {
+    email: string,
+    username: string,
+    firstName: string,
+    lastName: string,
+    nationality: string,
+    password: string,
+  }, thunkAPI) => {
+  try {
+    const result = await agent.Account.register(data.email, data.username,  data.firstName, data.lastName, data.nationality, data.password);
+    return result;
+  } catch (error) {
+    console.log(error)
+    return thunkAPI.rejectWithValue('Error');
+  }
+})
+
+
 //export default accountSlice.reducer;
 
-export const {logout} = accountSlice.actions;
+export const { logout } = accountSlice.actions;
