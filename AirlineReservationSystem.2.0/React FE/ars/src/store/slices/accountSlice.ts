@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { User } from "models/user";
 import agent from "agent";
+import { AxiosError } from "axios";
 
 interface AccountState {
   user: User | null;
@@ -47,13 +48,14 @@ export const registerUser = createAsyncThunk('account/registerUser', async (data
     firstName: string,
     lastName: string,
     nationality: string,
+    gender: string,
     password: string,
   }, thunkAPI) => {
   try {
-    const result = await agent.Account.register(data.email, data.username,  data.firstName, data.lastName, data.nationality, data.password);
-    return result;
-  } catch (error) {
-    console.log(error)
+    const result = await agent.Account.register(data.email, data.username, data.firstName, data.lastName, data.nationality, data.gender, data.password);
+    return thunkAPI.fulfillWithValue(result);
+  } catch (error: any) {
+    console.log(error.errors.title)
     return thunkAPI.rejectWithValue('Error');
   }
 })

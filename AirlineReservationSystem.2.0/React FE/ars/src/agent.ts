@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-import { ShorthandPropertyAssignment } from 'typescript';
 import store from './store/configureStore';
 
 axios.defaults.baseURL = process.env.REACT_APP_LocalHostUrl;
@@ -7,6 +6,7 @@ console.log(axios.defaults.baseURL)
 
 //TODO - solve issue with cirucal dependency with the inteceptor
 //TODO -> api routes should be constants
+//TODO -> make sure axios returns errors [] messages
 
 
 //axios.interceptors.request.use(config => {
@@ -17,6 +17,13 @@ console.log(axios.defaults.baseURL)
 //   }
 //   return config;
 //})
+
+axios.interceptors.response.use( 
+    response => response,
+    error => {
+     
+        console.log('this is an axios error!', error.message)
+    });
 
 const responseBody = (response: AxiosResponse) => response.data;
 
@@ -35,13 +42,14 @@ const Account = {
                 password: password
             }
         ),
-    register: (email: string, username: string, firstName: string, lastName: string, nationality: string | null, password: string) =>
+    register: (email: string, username: string, firstName: string, lastName: string, nationality: string | null, gender: string, password: string) =>
         requests.post('user/registeruserasync', {
             email: email,
             username: username,
             firstName: firstName,
             lastName: lastName,
             nationality: nationality,
+            gender :gender,
             password: password
         })
 }

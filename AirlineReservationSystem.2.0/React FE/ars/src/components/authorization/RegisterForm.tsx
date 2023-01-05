@@ -1,17 +1,51 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 
+import { registerUser } from 'store/slices/accountSlice';
 
-// TODO -> add a "why we require this information" next to the nationality field
-//TODO -> add a select with the gender
+import { useAppDispatch } from 'store/configureStore';
+
+// TODO -> add a "why we require this information" next to the nationality field -> use css after 
+//TODO: REDESIGN -> design does not suit the number of fields we have
 
 let Gender = {
-    'Male' : 1,
-    'Female' : 2,
-    'Other' : 3
+    'Male': 1,
+    'Female': 2,
+    'Other': 3
 }
 
+let initialDataState = {
+    email: '',
+    username: '',
+    firstName: '',
+    lastName: '',
+    nationality: '',
+    gender: '',
+    password: '',
+    confirmPassword: ''
+};
+
 const RegisterForm: React.FC = () => {
+
+    const dispatch = useAppDispatch()
+
+    const onRegisterSubmitHandler = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (data.confirmPassword !== data.password) {
+            alert('Password and confirm password must match!');
+            return;
+        }
+
+        dispatch(registerUser(data))
+            .then(result => {
+                if (result.meta.requestStatus === 'fulfilled') {
+                    setData(initialDataState);
+                }else{
+                    redirect('/');
+                }
+            })
+    };
 
     const [data, setData] = useState<{
         email: string;
@@ -20,17 +54,10 @@ const RegisterForm: React.FC = () => {
         lastName: string;
         nationality: string;
         gender: string;
-        password: string
+        password: string;
+        confirmPassword: string
     }
-    >({
-        email: '',
-        username: '',
-        firstName: '',
-        lastName: '',
-        nationality: '',
-        gender: '',
-        password: ''
-    });
+    >(initialDataState);
 
     const onChangeHandler = (e: any) => {
         setData({
@@ -58,7 +85,7 @@ const RegisterForm: React.FC = () => {
                             <input
                                 className='login__form-input'
                                 id="email"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 name="email"
                                 placeholder='example@gmail.com'
                                 required
@@ -75,7 +102,7 @@ const RegisterForm: React.FC = () => {
                                 className='login__form-input'
                                 id="username"
                                 name="username"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 placeholder='user123'
                                 required
                             >
@@ -91,7 +118,7 @@ const RegisterForm: React.FC = () => {
                                 className='login__form-input'
                                 id="firstName"
                                 name="firstName"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 placeholder='My first name'
                                 required
                             >
@@ -107,7 +134,7 @@ const RegisterForm: React.FC = () => {
                                 className='login__form-input'
                                 id="lastName"
                                 name="lastName"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 placeholder='My last name'
                                 required
                             >
@@ -123,7 +150,7 @@ const RegisterForm: React.FC = () => {
                                 className='login__form-input'
                                 id="nationality"
                                 name="nationality"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 placeholder='Bulgarian'
                                 required
                             >
@@ -141,8 +168,8 @@ const RegisterForm: React.FC = () => {
                                 name="gender"
                                 value={data.gender}
                                 onChange={onChangeHandler} >
-                                {Object.entries(Gender).map(gender=> (
-                                    <option key={gender[1]} value={gender[1]}>
+                                {Object.entries(Gender).map(gender => (
+                                    <option key={gender[1]} value={gender[0]}>
                                         {gender[0]}
                                     </option>
                                 ))}
@@ -158,15 +185,30 @@ const RegisterForm: React.FC = () => {
                                 className='input login__form-input'
                                 id="password"
                                 type="password"
-                                onChange={onChangeHandler} 
+                                onChange={onChangeHandler}
                                 name="password"
                                 placeholder='MyPassword'
                                 required
                             >
                             </input>
                         </div>
+                        <div className='login__form--password margin-bottom-medium'>
+                            <label
+                                className='label login__form-label'
+                                htmlFor="confirmPassword">
+                                Confirm password
+                            </label>
+                            <input
+                                className='input login__form-input'
+                                id="confirmPassword"
+                                onChange={onChangeHandler}
+                                name="confirmPassword"
+                                type="password"
+                            >
+                            </input>
+                        </div>
                         <div className='margin-bottom-small'>
-                            <a className="btn login__btn" href="#">Register</a>
+                            <a onClick={onRegisterSubmitHandler} className="btn login__btn" href="#">Register</a>
                         </div>
                         <div className='login__signUp'>
                             <Link className='login__signUp--text' to="/login">Already have an account? Sign in <strong>now</strong> !</Link>
