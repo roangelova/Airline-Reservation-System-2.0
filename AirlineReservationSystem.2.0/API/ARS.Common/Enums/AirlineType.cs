@@ -12,6 +12,7 @@ namespace ARS.Common.Enums
         NationalCarrier,
         Network,
         Private,
-        UltraLowCost
+        UltraLowCost,
+        Leisure
     }
 }
