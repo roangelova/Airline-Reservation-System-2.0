@@ -1,3 +1,7 @@
+DISCONTINUED as of 01.01.2025.
+
+Due to long maternity leave, I have decided to start with a project from scratch. The focus from now on will be on the GetMyTicket app. 
+
 # Airline-Reservation-System-2.0
 Holds a from scratch rewritten and updated version of the Airline-Reservtion-System, which was originally written in April 2022. The goal of this project is to practice and upgrade my skills, as well as test out newer technologies and functionalities. 
 
